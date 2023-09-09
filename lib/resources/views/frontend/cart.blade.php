@@ -48,8 +48,7 @@
 																									
 					</div>
 					<div class="col-md-6 col-sm-12 col-xs-12">
-						<a href="#" class="my-btn btn">Mua tiếp</a>
-						<a href="#" class="my-btn btn">Cập nhật</a>
+						<a href="{{ asset('/') }}" class="my-btn btn">Mua tiếp</a>
 						<a href="{{ asset('cart/delete/all') }}" class="my-btn btn">Xóa giỏ hàng</a>
 					</div>
 				</div>
@@ -77,7 +76,7 @@
 					<input required type="text" class="form-control" id="add" name="add">
 				</div>
 				<div class="form-group text-right">
-					<button type="submit" class="btn btn-default">Thực hiện đơn hàng</button>
+					<button type="submit" class="btn btn-default">Thanh toán</button>
 				</div>
 			</form>
 		</div>
