@@ -1,6 +1,17 @@
 @extends('frontend.master')
 @section('title', 'Giỏ hàng')
 @section('main')
+<script type="text/javascript">
+	function updateCart(quantity, rowId) {
+		$.get(
+			'{{ asset('cart/update') }}',
+			{ quantity: quantity, rowId: rowId },
+			function(){
+				location.reload();
+			}
+		);
+	}
+</script>
 	<link rel="stylesheet" href="css/cart.css">
 	<div id="wrap-inner">
 		<div id="list-cart">
@@ -22,7 +33,7 @@
 							<td>{{ $product->name }}</td>
 							<td>
 								<div class="form-group">
-									<input disabled class="form-control" type="number" value="{{ $product->qty }}">
+									<input class="form-control" type="number" name="quantity" value="{{ $product->qty }}" onchange="updateCart(this.value, '{{ $product->rowId }}')">
 								</div>
 							</td>
 							<td><span class="price">{{ number_format($product->price,0,',','.' ) }} đ</span></td>
@@ -70,6 +81,7 @@
 			</form>
 		</div>
 		@else 
-			
+			<img class="d-flex" style="margin: auto;" width="500" src="img/home/emptycart.jfif">
+		@endif
 	</div>
 @stop

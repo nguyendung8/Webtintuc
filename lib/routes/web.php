@@ -36,6 +36,7 @@ Route::group(['prefix' => 'cart'], function (){
     Route::get('/add/{id}', [CartController::class, 'getAddCart']);
     Route::get('/show', [CartController::class, 'getShowCart']);
     Route::get('/delete/{id}', [CartController::class, 'getDeleteCart']);
+    Route::get('/update', [CartController::class, 'getUpdateCart']);
 
 });
 

@@ -32,4 +32,11 @@ class CartController extends Controller
 
         return back();
     }
+    public function getUpdateCart(Request $request)
+    {
+        $rowId = $request->rowId;
+        $quantity = $request->quantity;
+
+        Cart::update($rowId, $quantity);
+    }
 }
