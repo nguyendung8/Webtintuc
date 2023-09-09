@@ -37,8 +37,12 @@ Route::group(['prefix' => 'cart'], function (){
     Route::get('/show', [CartController::class, 'getShowCart']);
     Route::get('/delete/{id}', [CartController::class, 'getDeleteCart']);
     Route::get('/update', [CartController::class, 'getUpdateCart']);
+    Route::post('/show', [CartController::class, 'postPayCart']);
 
 });
+
+//hoàn thành
+Route::get('/complete', [CartController::class, 'getComplete']);
 
 
 // Admin
