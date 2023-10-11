@@ -161,7 +161,7 @@
                 <div class="container">
                     <div class="row">				
                         <div id="logo-f" class="col-md-3 col-sm-12 col-xs-12 text-center">						
-                            <a href="#"><img src="img/home/logo.png"></a>		
+							<a href="{{ asset('/') }}">MLDShop</a>			
                         </div>
                         <div id="about" class="col-md-3 col-sm-12 col-xs-12">
                             <h3>About us</h3>
