@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\Admin\StatisticController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,20 +21,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //trang chủ
-Route::get('/', [FrontendController::class, 'getHome']);
+Route::group(['prefix' => '/homepage', 'middleware' => 'CheckLogedOut'], function (){
+    Route::get('', [FrontendController::class, 'getHome']);
+    // lấy ra chi tiết sản phẩm và comment
+    Route::get('/detail/{id}', [FrontendController::class, 'getDetail']);
+    Route::post('/detail/{id}', [FrontendController::class, 'postComment']);
 
-// lấy ra chi tiết sản phẩm và comment
-Route::get('/detail/{id}', [FrontendController::class, 'getDetail']);
-Route::post('/detail/{id}', [FrontendController::class, 'postComment']);
+    // lấy ra các danh mục
+    Route::get('/category/{id}', [FrontendController::class, 'getCategory']);
 
-// lấy ra các danh mục
-Route::get('/category/{id}', [FrontendController::class, 'getCategory']);
+    //search
+    Route::get('/search', [FrontendController::class, 'getSearch']);
+});
 
-//search
-Route::get('/search', [FrontendController::class, 'getSearch']);
+//Đăng ký
+Route::get('/register', [RegisterController::class, 'getRegister']);
+Route::post('/register', [RegisterController::class, 'postRegister']);
+
 
 // giỏ hàng
-Route::group(['prefix' => 'cart'], function (){
+Route::group(['prefix' => 'cart','middleware' => 'CheckLogedOut'], function (){
     Route::get('/add/{id}', [CartController::class, 'getAddCart']);
     Route::get('/show', [CartController::class, 'getShowCart']);
     Route::get('/delete/{id}', [CartController::class, 'getDeleteCart']);
@@ -48,17 +56,17 @@ Route::get('/complete', [CartController::class, 'getComplete']);
 // Admin
 Route::group(['namespace' => 'Admin'], function () {
     //login
-    Route::group(['prefix' => 'login', 'middleware' => 'CheckLogedIn'], function (){
-       Route::get('/', [LoginController::class, 'getLogin']);  
-       Route::post('/', [LoginController::class, 'postLogin']); 
+    Route::group(['prefix' => '/', 'middleware' => 'CheckLogedIn'], function (){
+       Route::get('/', [LoginController::class, 'getLogin']);
+       Route::post('/', [LoginController::class, 'postLogin']);
     });
-    
+
     //logout
-    Route::get('/logout', [HomeController::class, 'getLogout']);    
+    Route::get('/logout', [HomeController::class, 'getLogout']);
 
     //admin
     Route::group(['prefix' => 'admin', 'middleware' => 'CheckLogedOut'], function (){
-        
+
         //admin page
         Route::get('/home', [HomeController::class, 'getHome']);
 
@@ -88,5 +96,9 @@ Route::group(['namespace' => 'Admin'], function () {
             Route::get('/delete/{id}', [ProductController::class, 'getDeleteProduct']);
         });
 
+         //statistics
+         Route::group(['prefix' => 'statistic'], function (){
+            Route::get('/', [StatisticController::class, 'getStatistic'] );
+        });
     });
 });

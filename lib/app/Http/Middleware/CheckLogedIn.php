@@ -18,7 +18,11 @@ class CheckLogedIn
     public function handle(Request $request, Closure $next)
     {
         if(Auth::check()) {
-            return redirect()->intended('admin/home');
+            if (auth()->user()->level == 1) {
+                return redirect()->intended('admin/home');
+            } else {
+                return redirect()->intended('/homepage');
+            }
         }
         return $next($request);
     }

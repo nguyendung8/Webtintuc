@@ -24,6 +24,6 @@ class HomeController extends Controller
     {
         Auth::logout();
 
-        return redirect()->intended('login');
+        return redirect()->intended('/');
     }
 }

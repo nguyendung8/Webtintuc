@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,7 +13,7 @@ class LoginController extends Controller
     {
         return view('backend.login');
     }
-    public function postLogin(Request $request)
+    public function postLogin(LoginRequest $request)
     {
         $arr = ['email' => $request-> email, 'password'=> $request-> password];
         if($request->remember == 'Remember Me') {
@@ -21,7 +22,11 @@ class LoginController extends Controller
             $remember = false;
         }
         if(Auth::attempt($arr, $remember)) {
-            return redirect()->intended('admin/home');
+            if (auth()->user()->level == 1) {
+                return redirect()->intended('admin/home');
+            } else {
+                return redirect()->intended('/homepage');
+            }
         } else {
             return back()->withInput()->with('error', 'Tài khoản hoặc mật khẩu chưa đúng');
         }
