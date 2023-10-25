@@ -8,6 +8,7 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/datepicker3.css" rel="stylesheet">
 <link href="css/styles.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript" src="../../editor/ckeditor/ckeditor.js"></script>
 <script src="js/lumino.glyphs.js"></script>
 </head>
@@ -35,9 +36,10 @@
 			<li class="home-btn"><a href="{{ asset('admin/home') }}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Trang chủ</a></li>
 			<li class="product-btn"><a href="{{ asset('admin/product') }}"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Sản phẩm</a></li>
 			<li class="category-btn"><a href="{{ asset('admin/category') }}"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Danh mục</a></li>
-			<li role="presentation" class="divider"></li>
+			<li class="message-btn"><a href="{{ asset('admin/message') }}"><i style="font-size: 18px; margin-right: 7px;" class="fa fa-commenting" aria-hidden="true"></i> Tin nhắn</a></li>
+			<li class="order-btn"><a href="{{ asset('admin/order') }}"><i style="font-size: 18px; margin-right: 7px;" class="fa fa-cart-plus" aria-hidden="true"></i> Đơn hàng</a></li>
+            <li role="presentation" class="divider"></li>
 		</ul>
-
 	</div><!--/.sidebar-->
 
     <!--/Main-->
@@ -47,6 +49,8 @@
 		let home = document.querySelector('.home-btn');
 		let product = document.querySelector('.product-btn');
 		let category = document.querySelector('.category-btn');
+		let message = document.querySelector('.message-btn');
+		let order = document.querySelector('.order-btn');
 
 		home.addEventListener('click', function() {
 			home.classList.add('active');
@@ -56,6 +60,12 @@
 		});
 		category.addEventListener('click', function() {
 			category.classList.add('active');
+		});
+        message.addEventListener('click', function() {
+			message.classList.add('active');
+		});
+        order.addEventListener('click', function() {
+			order.classList.add('active');
 		});
 	</script>
     <script src="js/jquery-1.11.1.min.js"></script>

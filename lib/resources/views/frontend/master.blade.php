@@ -160,22 +160,22 @@
 
 					<div id="banner-l" class="text-center">
 						<div class="banner-l-item">
-							<a href="#"><img src="img/home/banner-l-1.png" alt="" class="img-thumbnail"></a>
+							<a href="{{ asset('/homepage') }}"><img src="img/home/banner-l-1.png" alt="" class="img-thumbnail"></a>
 						</div>
 						<div class="banner-l-item">
-							<a href="#"><img src="img/home/banner-l-2.png" alt="" class="img-thumbnail"></a>
+							<a href="{{ asset('/homepage') }}"><img src="img/home/banner-l-2.png" alt="" class="img-thumbnail"></a>
 						</div>
 						<div class="banner-l-item">
-							<a href="#"><img src="img/home/banner-l-3.png" alt="" class="img-thumbnail"></a>
+							<a href="{{ asset('/homepage') }}"><img src="img/home/banner-l-3.png" alt="" class="img-thumbnail"></a>
 						</div>
 						<div class="banner-l-item">
-							<a href="#"><img src="img/home/banner-l-4.png" alt="" class="img-thumbnail"></a>
+							<a href="{{ asset('/homepage') }}"><img src="img/home/banner-l-4.png" alt="" class="img-thumbnail"></a>
 						</div>
 						<div class="banner-l-item">
-							<a href="#"><img src="img/home/banner-l-5.png" alt="" class="img-thumbnail"></a>
+							<a href="{{ asset('/homepage') }}"><img src="img/home/banner-l-5.png" alt="" class="img-thumbnail"></a>
 						</div>
 						<div class="banner-l-item">
-							<a href="#"><img src="img/home/banner-l-6.png" alt="" class="img-thumbnail"></a>
+							<a href="{{ asset('/homepage') }}"><img src="img/home/banner-l-6.png" alt="" class="img-thumbnail"></a>
 						</div>
 						{{-- <div class="banner-l-item">
 							<a href="#"><img src="img/home/banner-l-7.png" alt="" class="img-thumbnail"></a>
@@ -221,10 +221,10 @@
 					<div id="banner-t" class="text-center">
 						<div class="row">
 							<div class="banner-t-item col-md-6 col-sm-12 col-xs-12">
-								<a href="#"><img src="img/home/banner-t-1.png" alt="" class="img-thumbnail"></a>
+								<a href="{{ asset('/homepage') }}"><img src="img/home/banner-t-1.png" alt="" class="img-thumbnail"></a>
 							</div>
 							<div class="banner-t-item col-md-6 col-sm-12 col-xs-12">
-								<a href="#"><img src="img/home/banner-t-1.png" alt="" class="img-thumbnail"></a>
+								<a href="{{ asset('/homepage') }}"><img src="img/home/banner-t-1.png" alt="" class="img-thumbnail"></a>
 							</div>
 						</div>
 					</div>
@@ -238,7 +238,9 @@
                 <i class="fa fa-comments contact-icon" aria-hidden="true"></i>
             </div>
             <div class="contact hidden">
-                <form action="" method="post">
+				@include('errors.note')
+                <form method="post">
+                    @csrf
                     <h3 class="contact-title">Cảm ơn quý khách đã quan tâm tới MLD Shop! Xin vui lòng hoàn thành biểu mẫu dưới đây</h3>
 					<i class="fa fa-times close-btn close-contact" aria-hidden="true"></i>
                     <label for="">Họ và tên</label>
@@ -247,11 +249,11 @@
                     </div>
                     <label for="">Số điện thoại <span style="color: red;">*</span></label>
                     <div>
-                        <input type="text" name="name" id="">
+                        <input type="text" name="phone_number" id="" required>
                     </div>
                     <label for="">Câu hỏi của bạn <span style="color: red;">*</span></label>
                     <div>
-                        <input style="padding: 11px" type="text" name="name" id="">
+                        <input style="padding: 11px" type="text" name="question" id="" required max="255">
                     </div>
                     <button class="submit-contact-btn close-contact" type="submit">Gửi</button>
                 </form>

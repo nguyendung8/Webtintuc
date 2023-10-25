@@ -4,7 +4,7 @@
 <base href="{{ asset('public/layout/backend')}}/">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Register Forms</title>
+<title>Đăng ký</title>
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/datepicker3.css" rel="stylesheet">
@@ -22,7 +22,7 @@
 	<div class="row">
 		<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
 			<div class="login-panel panel panel-default">
-				<div class="panel-heading">Register</div>
+				<div class="panel-heading">Đăng ký</div>
 				<div class="panel-body">
 					<form role="form" method="post">
 						@csrf
@@ -37,8 +37,8 @@
                             <div class="form-group">
 								<input class="form-control" placeholder="Role( 1: admin, 2: user)" name="level" type="text" value="">
 							</div>
-							<input type="submit" value="Register" class="btn btn-primary">
-                            <p>Do you already have an account ? <a style="text-decoration: none;" href="{{ asset('/') }}">Login</a></p>
+							<input type="submit" value="Đăng ký" class="btn btn-primary">
+                            <p style="margin-top: 5px">Bạn đã có tài khoản? <a style="text-decoration: none;" href="{{ asset('/') }}">Đăng nhập</a></p>
 						</fieldset>
 					</form>
 				</div>

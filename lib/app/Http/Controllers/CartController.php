@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\VpOrder;
 use App\Models\VpProduct;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -21,6 +22,7 @@ class CartController extends Controller
     {
         $total = Cart::total();
         $products = Cart::content();
+        // dd($products)  ;
         return view('frontend.cart', compact('products', 'total'));
     }
     public function getDeleteCart($id)
@@ -42,6 +44,16 @@ class CartController extends Controller
     }
     public function postPayCart(Request $request)
     {
+        // add table order
+        $order = new VpOrder;
+        $order->name  = $request->name;
+        $order->address = $request->add;
+        $order->phone = $request->phone;
+        $order->total_price = Cart::total();
+        $order->total_products = Cart::content()->pluck('name')->implode('; ');
+        $order->placed_order_date = now()->format('d/m/Y');
+        $order->save();
+
         $data['info'] = $request->all();
         $email = $request->email;
         $name = $request->name;

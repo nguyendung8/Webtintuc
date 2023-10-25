@@ -3,10 +3,11 @@
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\MessageController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\FrontendController;
-use App\Http\Controllers\Admin\StatisticController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,9 @@ Route::group(['prefix' => '/homepage', 'middleware' => 'CheckLogedOut'], functio
 
     //search
     Route::get('/search', [FrontendController::class, 'getSearch']);
+
+    // chăm sóc khách hàng
+    Route::post('/', [FrontendController::class, 'postQuestion']);
 });
 
 //Đăng ký
@@ -96,9 +100,16 @@ Route::group(['namespace' => 'Admin'], function () {
             Route::get('/delete/{id}', [ProductController::class, 'getDeleteProduct']);
         });
 
-         //statistics
-         Route::group(['prefix' => 'statistic'], function (){
-            Route::get('/', [StatisticController::class, 'getStatistic'] );
+        //message
+        Route::group(['prefix' => 'message'], function (){
+            Route::get('/', [MessageController::class, 'getMessage']);
+            Route::get('/delete/{id}', [MessageController::class, 'getDeleteMessage']);
+        });
+
+        //order
+        Route::group(['prefix' => 'order'], function (){
+            Route::get('/', [OrderController::class, 'getOrder']);
+            Route::get('/delete/{id}', [OrderController::class, 'getDeleteOrder']);
         });
     });
 });

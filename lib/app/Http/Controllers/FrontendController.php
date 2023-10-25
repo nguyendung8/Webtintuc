@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CustomerCareRequest;
 use App\Models\VpCategory;
 use App\Models\VpComment;
+use App\Models\VpCustomerCare;
 use App\Models\VpProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -53,5 +55,16 @@ class FrontendController extends Controller
         } else {
             return view('frontend.search', compact('prod_search', 'keyword'));
         }
+    }
+    public function postQuestion(Request $request)
+    {
+        $question = new VpCustomerCare;
+
+        $question->name = $request->name;
+        $question->phone_number = $request->phone_number;
+        $question->question = $request->question;
+
+        $question->save();
+        return redirect()->intended('/homepage');
     }
 }
