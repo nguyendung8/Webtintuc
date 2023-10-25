@@ -22,7 +22,6 @@ class CartController extends Controller
     {
         $total = Cart::total();
         $products = Cart::content();
-        // dd($products)  ;
         return view('frontend.cart', compact('products', 'total'));
     }
     public function getDeleteCart($id)

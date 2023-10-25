@@ -27,7 +27,7 @@
 						<td width="16.6665%">Thành tiền</td>
 						<td width="11.112%">Xóa</td>
 					</tr>
-					@foreach($products as $product)				
+					@foreach($products as $product)
 						<tr>
 							<td><img class="img-responsive" src="{{ asset('lib/storage/app/avatar/'.$product->options->img) }}"></td>
 							<td>{{ $product->name }}</td>
@@ -43,16 +43,15 @@
 					@endforeach
 				</table>
 				<div class="row" id="total-price">
-					<div class="col-md-6 col-sm-12 col-xs-12">										
+					<div class="col-md-6 col-sm-12 col-xs-12">
 							Tổng thanh toán: <span class="total-price">{{ $total }} đ</span>
-																									
 					</div>
 					<div class="col-md-6 col-sm-12 col-xs-12">
 						<a href="{{ asset('/') }}" class="my-btn btn">Mua tiếp</a>
 						<a href="{{ asset('cart/delete/all') }}" class="my-btn btn">Xóa giỏ hàng</a>
 					</div>
 				</div>
-			</form>             	                	
+			</form>
 		</div>
 
 		<div id="xac-nhan">
@@ -80,7 +79,7 @@
 				</div>
 			</form>
 		</div>
-		@else 
+		@else
 			<img class="d-flex" style="margin: auto;" width="500" src="img/home/emptycart.jfif">
 		@endif
 	</div>
