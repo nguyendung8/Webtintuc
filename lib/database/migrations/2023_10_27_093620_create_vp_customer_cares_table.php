@@ -16,9 +16,11 @@ class CreateVpCustomerCaresTable extends Migration
     {
         Schema::create('vp_customer_cares', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
+            $table->string('name');
             $table->string('phone_number');
             $table->string('question');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('vp_users')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -8,6 +8,7 @@ use App\Models\VpComment;
 use App\Models\VpCustomerCare;
 use App\Models\VpProduct;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class FrontendController extends Controller
@@ -39,6 +40,7 @@ class FrontendController extends Controller
         $comment->com_email = $request->email;
         $comment->com_content = $request->content;
         $comment->com_product = $id;
+        $comment->user_id = Auth::id();
 
         $comment->save();
         return back();
@@ -63,6 +65,7 @@ class FrontendController extends Controller
         $question->name = $request->name;
         $question->phone_number = $request->phone_number;
         $question->question = $request->question;
+        $question->user_id = Auth::id();
 
         $question->save();
         return redirect()->intended('/homepage');

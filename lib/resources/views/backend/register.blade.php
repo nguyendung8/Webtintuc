@@ -34,11 +34,6 @@
 							<div class="form-group">
 								<input class="form-control" placeholder="Password" name="password" type="password" value="">
 							</div>
-                            <div class="form-group">
-                                <select class="form-control" name="level" id="">
-                                    <option value="1">Admin</option>
-                                    <option value="2">User</option>
-                                </select>							</div>
 							<input type="submit" value="Đăng ký" class="btn btn-primary">
                             <p style="margin-top: 5px">Bạn đã có tài khoản? <a style="text-decoration: none;" href="{{ asset('/') }}">Đăng nhập</a></p>
 						</fieldset>

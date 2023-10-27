@@ -24,6 +24,8 @@ class CreateVpCommentsTable extends Migration
                   ->references('prod_id')
                   ->on('vp_products')
                   ->onDelete('cascade');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('vp_users')->onDelete('cascade');
             $table->timestamps();
             $table->SoftDeletes();
         });

@@ -6,6 +6,7 @@ use App\Models\VpOrder;
 use App\Models\VpProduct;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class CartController extends Controller
@@ -51,6 +52,7 @@ class CartController extends Controller
         $order->total_price = Cart::total();
         $order->total_products = Cart::content()->pluck('name')->implode('; ');
         $order->placed_order_date = now()->format('d/m/Y');
+        $order->user_id = Auth::id();
         $order->save();
 
         $data['info'] = $request->all();
@@ -62,7 +64,6 @@ class CartController extends Controller
             $message->from('dungli1221@gmail.com', 'Mạnh Dũng');
 
             $message->to($email, $name);
-            $message->cc('ly0195366@huce.edu.vn', 'Mai Ly');
 
             $message->subject('Xác nhận hóa đơn mua hàng MLDShop');
 

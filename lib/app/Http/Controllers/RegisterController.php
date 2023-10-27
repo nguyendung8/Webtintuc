@@ -18,8 +18,7 @@ class RegisterController extends Controller
         $user = new VpUser();
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
-        $user->level = $request->level;
-
+        $user->level = 2;
         $user->save();
         return redirect()->intended('/');
     }

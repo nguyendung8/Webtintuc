@@ -27,7 +27,6 @@ class RegisterRequest extends FormRequest
         return [
             'email' => ['required' ,'email', new UniqueEmail],
             'password' => ['required' ,'min: 6'],
-            'level' => ['required' ,'numeric']
         ];
     }
 
@@ -38,8 +37,6 @@ class RegisterRequest extends FormRequest
             'email.email' => 'Email không đúng định dạng',
             'password.required' => 'Mật khẩu là trường bắt buộc',
             'password.min' => 'Mật khẩu tối thiểu 6 kí tự',
-            'level.required' => 'Role là trường bắt buộc',
-            'level.numeric' => 'Role phải là số',
         ];
     }
 }

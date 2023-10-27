@@ -245,7 +245,7 @@
 					<i class="fa fa-times close-btn close-contact" aria-hidden="true"></i>
                     <label for="">Họ và tên</label>
                     <div>
-                        <input type="text" name="name" id="">
+                        <input type="text" name="name" id="" required>
                     </div>
                     <label for="">Số điện thoại <span style="color: red;">*</span></label>
                     <div>
