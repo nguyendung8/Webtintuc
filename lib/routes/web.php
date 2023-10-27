@@ -39,7 +39,7 @@ Route::group(['prefix' => '/homepage', 'middleware' => 'CheckLogedOut'], functio
 });
 
 //Đăng ký
-Route::get('/register', [RegisterController::class, 'getRegister']);
+Route::get('/register', [RegisterController::class, 'getRegister'])->middleware('CheckLogedIn');
 Route::post('/register', [RegisterController::class, 'postRegister']);
 
 
@@ -54,7 +54,7 @@ Route::group(['prefix' => 'cart','middleware' => 'CheckLogedOut'], function (){
 });
 
 //hoàn thành
-Route::get('/complete', [CartController::class, 'getComplete']);
+Route::get('/complete', [CartController::class, 'getComplete'])->middleware('CheckLogedOut');
 
 
 // Admin
@@ -69,7 +69,7 @@ Route::group(['namespace' => 'Admin'], function () {
     Route::get('/logout', [HomeController::class, 'getLogout']);
 
     //admin
-    Route::group(['prefix' => 'admin', 'middleware' => 'CheckLogedOut'], function (){
+    Route::group(['prefix' => 'admin', 'middleware' => 'CheckUserRole'], function (){
 
         //admin page
         Route::get('/home', [HomeController::class, 'getHome']);

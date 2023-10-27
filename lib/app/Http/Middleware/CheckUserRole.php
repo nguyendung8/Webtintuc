@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class CheckLogedOut
+class CheckUserRole
 {
     /**
      * Handle an incoming request.
@@ -20,9 +20,10 @@ class CheckLogedOut
         if(Auth::guest()) {
             return redirect()->intended('/');
         }
-        if (auth()->check() && auth()->user()->level === 1) {
-            return redirect()->intended('/admin/home');
+        if (auth()->check() && auth()->user()->level !== 1) {
+            return redirect()->intended('/homepage');
         }
+
         return $next($request);
     }
 }
