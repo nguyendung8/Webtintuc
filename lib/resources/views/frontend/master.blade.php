@@ -109,6 +109,64 @@
             .hidden {
                 display: none;
             }
+			a:hover{
+				text-decoration: none !important;
+			}
+			.subnav li {
+            color: black;
+            padding: 10px;
+            font-size: 17px;
+        	}
+
+			.user {
+				position: relative;
+				padding: 0 20px;
+			}
+			.icon {
+				font-size: 35px;
+				padding: 30px;
+				color: white;
+				cursor: pointer;
+			}
+			.subnav li:hover {
+				background-color: rgba(0, 0, 0, 0.2);
+			}
+
+			.user:hover .subnav {
+				display: block;
+			}
+
+			.user .subnav {
+				display: none;
+				top: 81px;
+				position: absolute;
+				list-style-type: none;
+				background-color: white;
+				box-shadow: 0 0 5px #333;
+				border-radius: 3px;
+				width: 175px;
+				z-index: 1;
+			}
+
+			#logo img {
+            width: 230px;
+            padding: 15px 0px;
+        	}
+
+			input {
+            padding: 10px;
+            border: none;
+			cursor: pointer;
+			}
+
+			.input {
+				width: 550px;
+				margin-top: 34px;
+			}
+
+			.submit {
+				background-color: #fff;
+			}
         </style>
 </head>
 <body>
@@ -116,28 +174,38 @@
 	<header id="header">
 		<div class="container">
 			<div style="flex-wrap: unset !important;" class="row">
-                <div class="logout-btn">
+                <!-- <div class="logout-btn">
 					<i class="fa fa-arrow-right"></i>
                     <a href="{{ asset('logout') }}">Đăng xuất</a></li>
-                </div>
+                </div> -->
 				<div id="logo" class="col-md-3 col-sm-12 col-xs-12">
-					<h1>
-						<a style="text-decoration: none;" href="{{ asset('/homepage') }}">MLDShop</a>
-						<nav><a id="pull" class="btn btn-danger" href="#">
-							<i class="fa fa-bars"></i>
-						</a></nav>
-					</h1>
+					<a style="text-decoration: none;" href="{{ asset('/homepage') }}">
+					<img src="img/home/logo2.png" alt="">
+					</a>
 				</div>
-				<div id="search" class="col-md-6 col-sm-12 col-xs-12">
-					<form action="{{ asset('homepage/search/')}}" method="get">
-						<input type="text" name="result" placeholder="Nhập tên sản phẩm ...">
-						<input type="submit" name="submit" value="Tìm Kiếm">
+
+				<div>
+					<form action="{{asset('homepage/search/')}}" method="get">
+						<input class="input" type="text" name="result" placeholder="Nhập tên sản phẩm ...">
+						<input class="submit"type="submit" name="submit" value="Tìm Kiếm">
 					</form>
 				</div>
-				<div id="cart" class="col-md-2 col-sm-12 col-xs-12">
-					<a class="display" href="{{ asset('cart/show') }}">Giỏ hàng</a>
-					<a href="{{ asset('cart/show') }}">{{ Cart::count() }}</a>
-				</div>
+
+				<div class="cart icon">
+					<a style="color:white;margin-left:10px" class="display" href="{{ asset('cart/show') }}">            		
+						<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+					</a>
+					<a style="font-size: 18px; color:white" href="{{ asset('cart/show') }}">{{ Cart::count() }}</a>
+        		</div>
+
+				<div class="user icon">
+					<i class="fa fa-user-circle-o" aria-hidden="true"></i>
+					<ul class="subnav">
+					<li><a href="#">Đơn hàng của tôi</a></li>
+					<li><a href="">Đổi mật khẩu</a></li>
+					<li><a href="{{ asset('logout') }}">Đăng xuất</a></li>
+					</ul>
+        		</div>
 			</div>
 		</div>
 	</header><!-- /header -->
