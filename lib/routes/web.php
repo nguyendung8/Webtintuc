@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AccountController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +44,10 @@ Route::group(['prefix' => '/homepage', 'middleware' => 'CheckLogedOut'], functio
 Route::get('/register', [RegisterController::class, 'getRegister'])->middleware('CheckLogedIn');
 Route::post('/register', [RegisterController::class, 'postRegister']);
 
+// changepassword
+Route::get('/change-password', [PasswordController::class, 'getChangePassword']);
+Route::post('/change-password', [PasswordController::class, 'updatePassword']);
+
 
 // giỏ hàng
 Route::group(['prefix' => 'cart','middleware' => 'CheckLogedOut'], function (){
@@ -55,7 +61,6 @@ Route::group(['prefix' => 'cart','middleware' => 'CheckLogedOut'], function (){
 
 //hoàn thành
 Route::get('/complete', [CartController::class, 'getComplete'])->middleware('CheckLogedOut');
-
 
 // Admin
 Route::group(['namespace' => 'Admin'], function () {
@@ -110,6 +115,12 @@ Route::group(['namespace' => 'Admin'], function () {
         Route::group(['prefix' => 'order'], function (){
             Route::get('/', [OrderController::class, 'getOrder']);
             Route::get('/delete/{id}', [OrderController::class, 'getDeleteOrder']);
+        });
+
+        //order
+        Route::group(['prefix' => 'account'], function (){
+            Route::get('/', [AccountController::class, 'getAccount']);
+            Route::get('/delete/{id}', [AccountController::class, 'getDeleteAccount']);
         });
     });
 });

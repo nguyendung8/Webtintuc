@@ -113,9 +113,9 @@
 				text-decoration: none !important;
 			}
 			.subnav li {
-            color: black;
-            padding: 10px;
-            font-size: 17px;
+                color: black;
+                padding: 10px;
+                font-size: 17px;
         	}
 
 			.user {
@@ -124,13 +124,17 @@
 			}
 			.icon {
 				font-size: 35px;
-				padding: 30px;
+				padding: 27px;
 				color: white;
 				cursor: pointer;
+                margin-left: 7px;
 			}
 			.subnav li:hover {
-				background-color: rgba(0, 0, 0, 0.2);
+				background-color: rgba(184, 166, 146, 0.2);
 			}
+            .subnav a {
+                color: #ff7b07;
+            }
 
 			.user:hover .subnav {
 				display: block;
@@ -149,14 +153,15 @@
 			}
 
 			#logo img {
-            width: 230px;
-            padding: 15px 0px;
+                width: 230px;
+                padding: 15px 0px;
         	}
 
 			input {
-            padding: 10px;
-            border: none;
-			cursor: pointer;
+                padding: 10px;
+                border: none;
+                cursor: pointer;
+                border-radius: 3px;
 			}
 
 			.input {
@@ -180,19 +185,19 @@
                 </div> -->
 				<div id="logo" class="col-md-3 col-sm-12 col-xs-12">
 					<a style="text-decoration: none;" href="{{ asset('/homepage') }}">
-					<img src="img/home/logo2.png" alt="">
+					    <img src="img/home/logo2.png" alt="">
 					</a>
 				</div>
 
 				<div>
 					<form action="{{asset('homepage/search/')}}" method="get">
-						<input class="input" type="text" name="result" placeholder="Nhập tên sản phẩm ...">
+						<input class="input" type="text" name="result" placeholder="Nhập tên sản phẩm ..." required>
 						<input class="submit"type="submit" name="submit" value="Tìm Kiếm">
 					</form>
 				</div>
 
 				<div class="cart icon">
-					<a style="color:white;margin-left:10px" class="display" href="{{ asset('cart/show') }}">            		
+					<a style="color:white;margin-left:10px" class="display" href="{{ asset('cart/show') }}">
 						<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 					</a>
 					<a style="font-size: 18px; color:white" href="{{ asset('cart/show') }}">{{ Cart::count() }}</a>
@@ -201,9 +206,9 @@
 				<div class="user icon">
 					<i class="fa fa-user-circle-o" aria-hidden="true"></i>
 					<ul class="subnav">
-					<li><a href="#">Đơn hàng của tôi</a></li>
-					<li><a href="">Đổi mật khẩu</a></li>
-					<li><a href="{{ asset('logout') }}">Đăng xuất</a></li>
+                        <li><a href="#">Đơn hàng của tôi</a></li>
+                        <li><a href="{{ asset('change-password') }}">Đổi mật khẩu</a></li>
+                        <li><a href="{{ asset('logout') }}">Đăng xuất</a></li>
 					</ul>
         		</div>
 			</div>
@@ -335,8 +340,10 @@
             <div id="footer-t">
                 <div class="container">
                     <div class="row">
-                        <div id="logo-f" class="col-md-3 col-sm-12 col-xs-12 text-center">
-							<a style="text-decoration: none;" href="{{ asset('/homepage') }}">MLDShop</a>
+                        <div id="logo" class="col-md-3 col-sm-12 col-xs-12">
+							<a style="text-decoration: none;" href="{{ asset('/homepage') }}">
+                                <img src="img/home/logo2.png" alt="">
+                            </a>
                         </div>
                         <div id="about" class="col-md-3 col-sm-12 col-xs-12">
                             <h3>About us</h3>
@@ -361,18 +368,16 @@
 
 		<script>
 			var openBtn = document.querySelector('.contact-icon');
-			var closeBtn = document.querySelectorAll('.close-btn');
-			var contactModal = document.querySelector('.contact');
+            var closeBtn = document.querySelector('.close-btn');
+            var contactModal = document.querySelector('.contact');
 
-            openBtn.addEventListener('click', function() {
-                contactModal.classList.remove('hidden');
-            });
-            for(let i = 0; i < closeBtn.length; i++)
-            {
-                closeBtn[i].addEventListener("click", function(){
-                    contactModal.classList.add("hidden");
-                });
+
+            function toggleModal() {
+                contactModal.classList.toggle('hidden');
             }
+
+            openBtn.addEventListener('click', toggleModal);
+            closeBtn.addEventListener('click', toggleModal);
 		</script>
     </body>
     </html>

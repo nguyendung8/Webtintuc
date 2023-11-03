@@ -15,7 +15,6 @@
 					<p>Bảo hành: {{ $product->prod_warranty }}</p>
 					<p>Phụ kiện: {{ $product->prod_accessories }}</p>
 					<p>Tình trạng: {{ $product->prod_condition }}</p>
-					<p>Khuyến mại: {{ $product->prod_promotion }}</p>
 					<p>Còn hàng: @if($product->prod_status == 1) Còn hàng @else Đã hết @endif</p>
 					<p class="add-cart text-center"><a href="{{ asset('cart/add/' . $product->prod_id) }}">Thêm vào giỏ hàng</a></p>
 				</div>

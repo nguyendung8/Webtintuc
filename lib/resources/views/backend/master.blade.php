@@ -21,7 +21,7 @@
 					<li class="dropdown pull-right">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> {{ Auth::user()->email }} <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="{{ asset('logout') }}"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Logout</a></li>
+							<li><a href="{{ asset('logout') }}"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Đăng xuất</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -34,6 +34,7 @@
 		<ul class="nav menu">
 			<li role="presentation" class="divider"></li>
 			<li class="home-btn"><a href="{{ asset('admin/home') }}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Trang chủ</a></li>
+			<li class="account-btn"><a href="{{ asset('admin/account') }}"><i style="font-size: 17px; margin-right: 7px;" class="fa fa-users" aria-hidden="true"></i> Tài khoản khách hàng</a></li>
 			<li class="product-btn"><a href="{{ asset('admin/product') }}"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Sản phẩm</a></li>
 			<li class="category-btn"><a href="{{ asset('admin/category') }}"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Danh mục</a></li>
 			<li class="message-btn"><a href="{{ asset('admin/message') }}"><i style="font-size: 18px; margin-right: 7px;" class="fa fa-commenting" aria-hidden="true"></i> Tin nhắn</a></li>
@@ -51,6 +52,7 @@
 		let category = document.querySelector('.category-btn');
 		let message = document.querySelector('.message-btn');
 		let order = document.querySelector('.order-btn');
+		let account = document.querySelector('.account-btn');
 
 		home.addEventListener('click', function() {
 			home.classList.add('active');
@@ -66,6 +68,9 @@
 		});
         order.addEventListener('click', function() {
 			order.classList.add('active');
+		});
+        account.addEventListener('click', function() {
+			account.classList.add('active');
 		});
 	</script>
     <script src="js/jquery-1.11.1.min.js"></script>

@@ -7,10 +7,10 @@
 				<h1 class="page-header">Sản phẩm</h1>
 			</div>
 		</div><!--/.row-->
-		
+
 		<div class="row">
 			<div class="col-xs-12 col-md-12 col-lg-12">
-				
+
 				<div class="panel panel-primary">
 					<div class="panel-heading">Thêm sản phẩm</div>
 					<div class="panel-body">
@@ -40,10 +40,6 @@
 										<input required type="text" name="warranty" class="form-control">
 									</div>
 									<div class="form-group" >
-										<label>Khuyến mãi</label>
-										<input required type="text" name="promotion" class="form-control">
-									</div>
-									<div class="form-group" >
 										<label>Tình trạng</label>
 										<input required type="text" name="condition" class="form-control">
 									</div>
@@ -59,10 +55,10 @@
 										<textarea class="ckeditor" required name="description"></textarea>
 										{{-- <script type="text/javascript">
 											var editor= CKEDITOR.replace('description',{
-											language:'vi',											     
-											filebrowerImageBrowseUrl:'../../editor/ckfinder/ckfinder.html?Type=Images', 
-											filebrowerFlashBrowseUrl:'../../editor/ckfinder/ckfinder.html?Type=Flash', 
-											filebrowerImageUploadUrl:'../../editor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images', 
+											language:'vi',
+											filebrowerImageBrowseUrl:'../../editor/ckfinder/ckfinder.html?Type=Images',
+											filebrowerFlashBrowseUrl:'../../editor/ckfinder/ckfinder.html?Type=Flash',
+											filebrowerImageUploadUrl:'../../editor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
 											filebrowerFlashUploadUrl:'../../editor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash' ,
 											});
 										</script> --}}

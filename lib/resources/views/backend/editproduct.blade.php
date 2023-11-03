@@ -1,16 +1,16 @@
 @extends('backend.master')
 @section('title', 'Cập nhật sản phẩm')
-@section('main')	
+@section('main')
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">Sản phẩm</h1>
 			</div>
 		</div><!--/.row-->
-		
+
 		<div class="row">
 			<div class="col-xs-12 col-md-12 col-lg-12">
-				
+
 				<div class="panel panel-primary">
 					<div class="panel-heading">Sửa sản phẩm</div>
 					<div class="panel-body">
@@ -39,10 +39,6 @@
 									<div class="form-group" >
 										<label>Bảo hành</label>
 										<input required type="text" name="warranty" class="form-control" value="{{ $product->prod_warranty}}">
-									</div>
-									<div class="form-group" >
-										<label>Khuyến mãi</label>
-										<input required type="text" name="promotion" class="form-control" value="{{ $product->prod_promotion}}">
 									</div>
 									<div class="form-group" >
 										<label>Tình trạng</label>

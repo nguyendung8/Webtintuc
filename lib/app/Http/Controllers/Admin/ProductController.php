@@ -36,7 +36,6 @@ class ProductController extends Controller
         $product->prod_accessories = $request->accessories;
         $product->prod_price = $request->price;
         $product->prod_warranty = $request->warranty;
-        $product->prod_promotion = $request->promotion;
         $product->prod_condition = $request->condition;
         $product->prod_status = $request->status;
         $product->prod_description = $request->description;
@@ -64,7 +63,6 @@ class ProductController extends Controller
         $product->prod_accessories = $request->accessories;
         $product->prod_price = $request->price;
         $product->prod_warranty = $request->warranty;
-        $product->prod_promotion = $request->promotion;
         $product->prod_condition = $request->condition;
         $product->prod_status = $request->status;
         $product->prod_description = $request->description;
