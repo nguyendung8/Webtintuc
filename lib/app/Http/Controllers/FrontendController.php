@@ -22,7 +22,7 @@ class FrontendController extends Controller
     public function getDetail($id)
     {
         $product = VpProduct::find($id);
-        $comments = VpComment::where('com_product', $id)->get();
+        $comments = VpComment::where('com_product', $id) ->where('com_status', 1)->get();
 
         return view('frontend.details', compact('product', 'comments'));
     }

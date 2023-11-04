@@ -1,5 +1,5 @@
 @extends('backend.master')
-@section('title', 'Danh mục sản phẩm')
+@section('title', 'Danh sách tài khoản')
 @section('main')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
@@ -34,7 +34,7 @@
                         @foreach($accounts as $account)
                         <div class="account-item">
 						    <a href="{{ asset('admin/account/delete/' . $account->id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa tài khoản này không?')"><i class="fa fa-times close-btn" aria-hidden="true"></i></a>
-                            <label class="customer-id">Customer ID: </label>
+                            <label class="customer-id">ID khách hàng: </label>
                                 {{ $account->id }}
                             <br>
                             <label class="customer-phone">Email: </label>

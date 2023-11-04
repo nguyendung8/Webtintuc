@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AccountController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
@@ -62,6 +63,7 @@ Route::group(['prefix' => 'cart','middleware' => 'CheckLogedOut'], function (){
 //hoàn thành
 Route::get('/complete', [CartController::class, 'getComplete'])->middleware('CheckLogedOut');
 
+
 // Admin
 Route::group(['namespace' => 'Admin'], function () {
     //login
@@ -117,10 +119,18 @@ Route::group(['namespace' => 'Admin'], function () {
             Route::get('/delete/{id}', [OrderController::class, 'getDeleteOrder']);
         });
 
-        //order
+        //account
         Route::group(['prefix' => 'account'], function (){
             Route::get('/', [AccountController::class, 'getAccount']);
             Route::get('/delete/{id}', [AccountController::class, 'getDeleteAccount']);
+        });
+
+        //comment
+        Route::group(['prefix' => 'comment'], function (){
+            Route::get('/', [CommentController::class, 'getComment']);
+            Route::get('/delete/{id}', [CommentController::class, 'getDeleteComment']);
+            // Duyệt bình luận
+            Route::get('/confirm-comment/{id}', [CommentController::class, 'confirmComment']);
         });
     });
 });

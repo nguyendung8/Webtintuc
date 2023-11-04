@@ -33,12 +33,13 @@
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 		<ul class="nav menu">
 			<li role="presentation" class="divider"></li>
-			<li class="home-btn"><a href="{{ asset('admin/home') }}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Trang chủ</a></li>
-			<li class="account-btn"><a href="{{ asset('admin/account') }}"><i style="font-size: 17px; margin-right: 7px;" class="fa fa-users" aria-hidden="true"></i> Tài khoản khách hàng</a></li>
-			<li class="product-btn"><a href="{{ asset('admin/product') }}"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Sản phẩm</a></li>
-			<li class="category-btn"><a href="{{ asset('admin/category') }}"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Danh mục</a></li>
-			<li class="message-btn"><a href="{{ asset('admin/message') }}"><i style="font-size: 18px; margin-right: 7px;" class="fa fa-commenting" aria-hidden="true"></i> Tin nhắn</a></li>
-			<li class="order-btn"><a href="{{ asset('admin/order') }}"><i style="font-size: 18px; margin-right: 7px;" class="fa fa-cart-plus" aria-hidden="true"></i> Đơn hàng</a></li>
+			<li class="home-btn"><a style="display: flex !important; align-items: center;" href="{{ asset('admin/home') }}"><i style="font-size: 17px; margin-right: 8px;" class="fa fa-home" aria-hidden="true"></i> Trang chủ</a></li>
+			<li class="account-btn"><a style="display: flex !important; align-items: center;" href="{{ asset('admin/account') }}"><i style="font-size: 17px; margin-right: 7px;" class="fa fa-users" aria-hidden="true"></i> Người dùng</a></li>
+			<li class="product-btn"><a style="display: flex !important; align-items: center;" href="{{ asset('admin/product') }}"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg> Sản phẩm</a></li>
+			<li class="category-btn"><a style="display: flex !important; align-items: center;" href="{{ asset('admin/category') }}"><svg class="glyph stroked app-window-with-content"><use xlink:href="#stroked-app-window-with-content"></use></svg> Danh mục</a></li>
+			<li class="order-btn"><a style="display: flex !important; align-items: center;" href="{{ asset('admin/order') }}"><i style="font-size: 18px; margin-right: 9px;" class="fa fa-cart-plus" aria-hidden="true"></i> Đơn hàng</a></li>
+			<li class="message-btn"><a style="display: flex !important; align-items: center;" href="{{ asset('admin/message') }}"><svg class="glyph stroked empty-message"><use xlink:href="#stroked-empty-message"></use></svg> Tin nhắn</a></li>
+			<li class="comment-btn"><a style="display: flex !important; align-items: center;" href="{{ asset('admin/comment') }}"><i style="font-size: 18px; margin-right: 8px;" class="fa fa-pencil-square-o" aria-hidden="true"></i> Bình luận</a></li>
             <li role="presentation" class="divider"></li>
 		</ul>
 	</div><!--/.sidebar-->
@@ -53,6 +54,7 @@
 		let message = document.querySelector('.message-btn');
 		let order = document.querySelector('.order-btn');
 		let account = document.querySelector('.account-btn');
+		let comment = document.querySelector('.comment-btn');
 
 		home.addEventListener('click', function() {
 			home.classList.add('active');
@@ -71,6 +73,9 @@
 		});
         account.addEventListener('click', function() {
 			account.classList.add('active');
+		});
+        comment.addEventListener('click', function() {
+			comment.classList.add('active');
 		});
 	</script>
     <script src="js/jquery-1.11.1.min.js"></script>
