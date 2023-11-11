@@ -75,7 +75,7 @@
 					<input required type="text" class="form-control" id="add" name="add">
 				</div>
 				<div class="form-group text-right">
-					<button type="submit" class="btn btn-default">Thanh toán</button>
+					<button type="submit" class="btn btn-default">Đặt hàng</button>
 				</div>
 			</form>
 		</div>

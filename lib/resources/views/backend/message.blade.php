@@ -1,5 +1,5 @@
 @extends('backend.master')
-@section('title', 'Danh mục sản phẩm')
+@section('title', 'Danh sách tin nhắn')
 @section('main')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>

@@ -206,7 +206,7 @@
 				<div class="user icon">
 					<i class="fa fa-user-circle-o" aria-hidden="true"></i>
 					<ul class="subnav">
-                        <li><a href="#">Đơn hàng của tôi</a></li>
+                        <li><a href="{{ asset('list-order') }}">Đơn hàng của tôi</a></li>
                         <li><a href="{{ asset('change-password') }}">Đổi mật khẩu</a></li>
                         <li><a href="{{ asset('logout') }}">Đăng xuất</a></li>
 					</ul>

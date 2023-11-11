@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\VpOrder;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\FuncCall;
 
 class OrderController extends Controller
 {
@@ -21,5 +22,9 @@ class OrderController extends Controller
         $order->delete();
 
         return redirect()->intended('admin/order');
+    }
+    public function UpdateOrderStatus()
+    {
+
     }
 }

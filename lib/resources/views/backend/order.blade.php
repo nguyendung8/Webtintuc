@@ -1,5 +1,5 @@
 @extends('backend.master')
-@section('title', 'Danh mục sản phẩm')
+@section('title', 'Danh sách đơn hàng')
 @section('main')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
@@ -16,6 +16,17 @@
         float: right;
         cursor: pointer;
     }
+    .update-status {
+        background: #337ab7;
+        color: #fff;
+        border: navajowhite;
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 0 13px;
+    }
+    .update-status:hover {
+        opacity: 0.9;
+    }
 </style>
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 		<div class="row">
@@ -30,7 +41,8 @@
                     <div class="panel-heading">
                         Danh sách đơn hàng
                     </div>
-                    <div class="panel-body">
+                    <form action="" method="post" class="panel-body">
+                        @csrf
                         @foreach($orders as $order)
                         <div class="order-item">
 						    <a href="{{ asset('admin/order/delete/' . $order->id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa đơn hàng này không?')"><i class="fa fa-times close-btn" aria-hidden="true"></i></a>
@@ -52,9 +64,18 @@
                             <label class="customer-phone">Ngày đặt hàng: </label>
                             {{ $order->placed_order_date }}
                             <br>
+                            <label class="customer-phone">Trạng thái đơn hàng: </label>
+                            <div style="display: flex; gap: 10px;">
+                                <select style="width: fit-content;cursor: pointer;" required name="order-status" class="form-control">
+                                    <option value="Chờ xác nhận" @if($order->order_status == 'Chờ xác nhận') selected  @endif>Chờ xác nhận</option>
+                                    <option value="Đã xác nhận" @if($order->order_status == 'Đã xác nhận') selected  @endif>Đã xác nhận</option>
+                                    <option value="Đang vận chuyển" @if($order->order_status == 'Đang vận chuyển') selected  @endif>Đang vận chuyển</option>
+                                </select>
+                                <input class="update-status" type="submit" value="Cập nhật">
+                            </div>
                         </div>
                         @endforeach
-                    </div>
+                    </form>
                 </div>
 			</div>
 		</div>

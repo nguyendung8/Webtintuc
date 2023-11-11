@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\OrderUserController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -46,8 +47,16 @@ Route::get('/register', [RegisterController::class, 'getRegister'])->middleware(
 Route::post('/register', [RegisterController::class, 'postRegister']);
 
 // changepassword
-Route::get('/change-password', [PasswordController::class, 'getChangePassword']);
-Route::post('/change-password', [PasswordController::class, 'updatePassword']);
+Route::group(['prefix' => 'change-password','middleware' => 'CheckLogedOut'], function (){
+    Route::get('/', [PasswordController::class, 'getChangePassword']);
+    Route::post('/', [PasswordController::class, 'updatePassword']);
+});
+
+// đơn hàng của user
+Route::group(['prefix' => 'list-order','middleware' => 'CheckLogedOut'], function (){
+    Route::get('/', [OrderUserController::class, 'getListOrder']);
+    Route::get('/received/{id}', [OrderUserController::class, 'receivedOrder']);
+});
 
 
 // giỏ hàng
