@@ -49,6 +49,9 @@
                 <label class="customer-name">Tên người nhận: </label>
                     {{ $order->name }}
                 <br>
+                <label class="customer-name">Email: </label>
+                {{ $order->email }}
+                <br>
                 <label class="customer-phone">Số điện thoại liên hệ: </label>
                     {{ $order->phone }}
                 <br>
@@ -69,9 +72,11 @@
                         {{ $order->order_status }}
                     </span>
                 <br>
-                <button style="@if($order->order_status == 'Hoàn thành') background: #2fd01b; @endif" class="received-btn">
-                    <a href="{{ asset('list-order/received/' . $order->id) }}">{{$order->order_status == 'Hoàn thành' ? 'Hoàn thành' : 'Đã nhận được hàng'}}</a>
-                </button>
+                @if($order->order_status == 'Đang vận chuyển')
+                    <button style="@if($order->order_status == 'Hoàn thành') background: #2fd01b; @endif" class="received-btn">
+                        <a href="{{ asset('list-order/received/' . $order->id) }}">{{$order->order_status == 'Hoàn thành' ? 'Hoàn thành' : 'Đã nhận được hàng'}}</a>
+                    </button>
+                @endif
             </div>
             @endforeach
         </div>

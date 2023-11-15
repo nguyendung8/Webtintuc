@@ -48,6 +48,7 @@ class CartController extends Controller
         $order = new VpOrder;
         $order->name  = $request->name;
         $order->address = $request->add;
+        $order->email = $request->email;
         $order->phone = $request->phone;
         $order->total_price = Cart::total();
         $order->total_products = Cart::content()->pluck('name')->implode('; ');
