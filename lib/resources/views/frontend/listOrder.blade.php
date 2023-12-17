@@ -62,7 +62,11 @@
                     {{ $order->total_products }}
                 <br>
                 <label class="customer-question">Tổng tiền: </label>
-                    {{  $order->total_price }} đ
+                    <?php
+                        $so = intval(str_replace(',', '', $order->total_price));
+                        $so_moi = number_format($so, 0, '.', ',');
+                    ?>
+                    {{  $so_moi }} đ
                 <br>
                 <label class="customer-phone">Ngày đặt hàng: </label>
                 {{ $order->placed_order_date }}
