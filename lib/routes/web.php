@@ -128,6 +128,7 @@ Route::group(['namespace' => 'Admin'], function () {
             Route::get('/delete/{id}', [OrderController::class, 'getDeleteOrder']);
             Route::get('/confirm/{id}', [OrderController::class, 'confirmOrder']);
             Route::get('/transport/{id}', [OrderController::class, 'transportOrder']);
+            Route::get('/detail/{id}', [OrderController::class, 'viewDetailOrder']);
         });
 
         //account

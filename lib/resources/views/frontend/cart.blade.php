@@ -44,7 +44,14 @@
 				</table>
 				<div class="row" id="total-price">
 					<div class="col-md-6 col-sm-12 col-xs-12">
-							Tổng thanh toán: <span class="total-price">{{ $total }} đ</span>
+							Tổng thanh toán:
+                            <span class="total-price">
+                                <?php
+                                    $so = intval(str_replace(',', '', $total));
+                                    $so_moi = number_format($so, 0, '.', ',');
+                                ?>
+                                    {{  $so_moi }} đ
+                            </span>
 					</div>
 					<div class="col-md-6 col-sm-12 col-xs-12">
 						<a href="{{ asset('/') }}" class="my-btn btn">Mua tiếp</a>

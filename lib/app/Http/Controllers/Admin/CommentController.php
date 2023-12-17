@@ -10,9 +10,10 @@ class CommentController extends Controller
 {
     public function getComment()
     {
-        $comments = VpComment::all();
+        $comment_not_confirm = VpComment::Where('com_status', 0)->get();
+        $comment_confirmed = VpComment::Where('com_status', 1)->get();
 
-        return view('backend.comment', compact('comments'));
+        return view('backend.comment', compact('comment_not_confirm', 'comment_confirmed'));
     }
     public function getDeleteComment($id)
     {

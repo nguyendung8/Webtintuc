@@ -23,14 +23,19 @@
         width: fit-content;
         margin: auto;
         border-radius: 5px;
-        background: #337ab7;
+        background: #dc2626;
         color: #fff;
         font-size: 15px;
     }
+
     .confirm-btn:hover {
         text-decoration: none;
         color: #fff;
-        opacity: 0.9;
+        opacity: 0.8;
+    }
+    .confirmed {
+        color: #0ad00a;
+        font-size: 15px;
     }
 </style>
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
@@ -44,10 +49,10 @@
 			<div class="col-xs-12 col-md-5 col-lg-6">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        Danh sách bình luận
+                        Danh sách bình luận chờ duyệt
                     </div>
                     <div class="panel-body">
-                        @foreach($comments as $comment)
+                        @foreach($comment_not_confirm as $comment)
                         <div class="comment-item">
 						    <a href="{{ asset('admin/comment/delete/' . $comment->com_id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa bình luận này không?')"><i class="fa fa-times close-btn" aria-hidden="true"></i></a>
                             <label class="customer-email">ID khách hàng: </label>
@@ -64,12 +69,38 @@
                             <br>
                             <a class="confirm-btn" href="{{ asset('admin/comment/confirm-comment/' . $comment->com_id) }}"
                                 onclick="return confirm('Bạn có chắc chắn muốn duyệt bình luận này không?')">
-                                @if($comment->com_status == 0)
                                     Duyệt
-                                @else
-                                    Đã duyệt
-                                @endif
                             </a>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+			</div>
+            <div class="col-xs-12 col-md-5 col-lg-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        Danh sách bình luận đã duyệt
+                    </div>
+                    <div class="panel-body">
+                        @foreach($comment_confirmed as $comment)
+                        <div class="comment-item">
+						    <a href="{{ asset('admin/comment/delete/' . $comment->com_id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa bình luận này không?')"><i class="fa fa-times close-btn" aria-hidden="true"></i></a>
+                            <label class="customer-email">ID khách hàng: </label>
+                            {{ $comment->user_id }}
+                            <br>
+                            <label class="customer-email">Tên khách hàng: </label>
+                                {{ $comment->com_name }}
+                            <br>
+                            <label class="customer-email">ID Sản phẩm: </label>
+                            {{ $comment->com_product }}
+                            <br>
+                            <label class="customer-phone">Bình luận: </label>
+                                {{ $comment->com_content }}
+                            <br>
+                            <label class="customer-phone">Trạng thái: </label>
+                            <span class="confirmed">
+                                    Đã duyệt
+                            </span>
                         </div>
                         @endforeach
                     </div>

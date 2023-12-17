@@ -12,9 +12,12 @@ class OrderController extends Controller
 {
     public function getOrder()
     {
-        $orders = VpOrder::all();
+        $wait_confirm = VpOrder::Where('order_status' , 'Chờ xác nhận')->orderBy('created_at', 'asc')->get();
+        $confirmed = VpOrder::Where('order_status' , 'Đã xác nhận')->orderBy('created_at', 'asc')->get();
+        $transforming = VpOrder::Where('order_status' , 'Đang vận chuyển')->orderBy('created_at', 'asc')->get();
+        $done = VpOrder::Where('order_status' , 'Hoàn thành')->orderBy('created_at', 'asc')->get();
 
-        return view('backend.order', compact('orders'));
+        return view('backend.order', compact('wait_confirm', 'confirmed', 'transforming', 'done'));
     }
     public function getDeleteOrder($id)
     {
@@ -23,6 +26,11 @@ class OrderController extends Controller
         $order->delete();
 
         return redirect()->intended('admin/order');
+    }
+    public function viewDetailOrder($id)
+    {
+        $order = VpOrder::find($id);
+        return view('backend.orderdetail', compact('order'));
     }
     public function confirmOrder($id)
     {
