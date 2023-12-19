@@ -54,6 +54,7 @@
 			<div class="col-xs-12 col-md-5 col-lg-6">
                 <div class="panel panel-primary">
                     <div style=" @if($order->order_status == 'Hoàn thành') background: #62b700 @elseif($order->order_status == 'Chờ xác nhận') background: #e04135 @elseif($order->order_status == 'Đã xác nhận') background: #337ab7; @else background: #ff9800  @endif"  class="panel-heading">
+                        <a href="{{ asset('admin/order') }}"><i style="color: #fff !important;" class="fa fa-arrow-left" aria-hidden="true"></i></a>
                         Xem chi tiết mã đơn hàng {{ $order->id }}
                     </div>
                     <div class="panel-body">
