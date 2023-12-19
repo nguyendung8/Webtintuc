@@ -24,13 +24,15 @@ class AddProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'img' => 'image'
+            'img' => 'image',
+            'product_name'=>'unique:vp_products,prod_name,' . $this->segment(4) . ',prod_id'
         ];
     }
     public function messages()
     {
         return [
-            'img.image' => 'Vui lòng upload file ảnh'
+            'img.image' => 'Vui lòng upload file ảnh',
+            'product_name.unique'=>'Tên sản phẩm đã tồn tại'
         ];
     }
 }
