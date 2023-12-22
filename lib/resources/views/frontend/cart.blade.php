@@ -33,7 +33,7 @@
 							<td>{{ $product->name }}</td>
 							<td>
 								<div class="form-group">
-									<input class="form-control" type="number" name="quantity" value="{{ $product->qty }}" onchange="updateCart(this.value, '{{ $product->rowId }}')">
+									<input class="form-control" min="1" type="number" name="quantity" value="{{ $product->qty }}" onchange="updateCart(this.value, '{{ $product->rowId }}')">
 								</div>
 							</td>
 							<td><span class="price">{{ number_format($product->price,0,',','.' ) }} đ</span></td>
