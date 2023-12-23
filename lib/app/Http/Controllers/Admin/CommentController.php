@@ -20,7 +20,7 @@ class CommentController extends Controller
         $comment = VpComment::find($id);
         $comment->delete();
 
-        return redirect()->intended('admin/comment');
+        return redirect()->intended('admin/comment')->with('success', 'Xóa bình luận thành công!');
     }
     public function confirmComment($id)
     {
@@ -28,6 +28,6 @@ class CommentController extends Controller
         $comment->com_status = 1;
         $comment->save();
 
-        return redirect()->intended('admin/comment');
+        return redirect()->intended('admin/comment')->with('success', 'Duyệt bình luận thành công!');
     }
 }

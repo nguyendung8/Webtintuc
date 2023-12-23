@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-<base href="{{ asset('public/layout/backend')}}/">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>@yield('title') | MLD shop</title>
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/datepicker3.css" rel="stylesheet">
-<link href="css/styles.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script type="text/javascript" src="../../editor/ckeditor/ckeditor.js"></script>
-<script src="js/lumino.glyphs.js"></script>
-</head>
-<body>
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-		<div class="container-fluid">
+    <head>
+        <base href="{{ asset('public/layout/backend')}}/">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>@yield('title') | MLD shop</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/datepicker3.css" rel="stylesheet">
+        <link href="css/styles.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script type="text/javascript" src="../../editor/ckeditor/ckeditor.js"></script>
+        <script src="js/lumino.glyphs.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            @if(session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+            @endif
+            <div class="container-fluid">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="{{ asset('admin/home') }}">MLD Admin</a>
 				<ul class="user-menu">

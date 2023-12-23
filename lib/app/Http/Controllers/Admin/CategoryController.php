@@ -24,7 +24,7 @@ class CategoryController extends Controller
         $category->cate_slug = Str::slug($request->category_name);
 
         $category->save();
-        return back();
+        return back()->with('success', 'Thêm mới danh mục thành công!');
     }
     public function getEditCategory($id)
     {
@@ -40,7 +40,7 @@ class CategoryController extends Controller
         $category->cate_slug = Str::slug($request->category_name);
 
         $category->save();
-        return redirect()->intended('admin/category');
+        return redirect()->intended('admin/category')->with('success', 'Chỉnh sửa danh mục thành công!');
     }
     public function getDeleteCategory($id)
     {
@@ -48,6 +48,6 @@ class CategoryController extends Controller
 
         $category->delete();
 
-        return redirect()->intended('admin/category');
+        return redirect()->intended('admin/category')->with('success', 'Xóa danh mục thành công!');
     }
 }

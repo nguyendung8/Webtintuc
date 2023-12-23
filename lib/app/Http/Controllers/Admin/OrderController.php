@@ -25,7 +25,7 @@ class OrderController extends Controller
 
         $order->delete();
 
-        return redirect()->intended('admin/order');
+        return redirect()->intended('admin/order')->with('success', 'Xóa đơn hàng thành công!');;
     }
     public function viewDetailOrder($id)
     {
@@ -50,7 +50,7 @@ class OrderController extends Controller
             $message->subject('Thông báo đơn hàng của bạn đã được xác nhận tại MLD Shop');
 
         });
-        return redirect()->intended('admin/order');
+        return redirect()->intended('admin/order')->with('success', 'Xác nhận đơn hàng thành công!');
     }
     public function transportOrder($id)
     {
@@ -70,6 +70,6 @@ class OrderController extends Controller
             $message->subject('Thông báo đơn hàng của bạn đang được vận chuyển từ MLD Shop');
 
         });
-        return redirect()->intended('admin/order');
+        return redirect()->intended('admin/order')->with('success', 'Cập nhật đơn hàng thành công!');;
     }
 }

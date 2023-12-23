@@ -175,6 +175,11 @@
         </style>
 </head>
 <body>
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
 	<!-- header -->
 	<header id="header">
 		<div class="container">

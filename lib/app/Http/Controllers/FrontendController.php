@@ -43,7 +43,7 @@ class FrontendController extends Controller
         $comment->user_id = Auth::id();
 
         $comment->save();
-        return back();
+        return back()->with('success', 'Bạn đã thêm bình luận thành công!');
     }
     public function getSearch(Request $request)
     {
@@ -65,6 +65,6 @@ class FrontendController extends Controller
         $question->user_id = Auth::id();
 
         $question->save();
-        return redirect()->intended('/homepage');
+        return redirect()->intended('/homepage')->with('success', 'Bạn đã thêm câu hỏi thành công!');
     }
 }

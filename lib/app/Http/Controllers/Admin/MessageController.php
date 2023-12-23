@@ -20,6 +20,6 @@ class MessageController extends Controller
 
         $message->delete();
 
-        return redirect()->intended('admin/message');
+        return redirect()->intended('admin/message')->with('success', 'Xóa tin nhắn thành công!');
     }
 }

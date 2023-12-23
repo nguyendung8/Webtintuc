@@ -20,6 +20,6 @@ class RegisterController extends Controller
         $user->password = Hash::make($request->password);
         $user->level = 2;
         $user->save();
-        return redirect()->intended('/');
+        return redirect()->intended('/')->with('success', 'Đăng ký thành công!');
     }
 }
