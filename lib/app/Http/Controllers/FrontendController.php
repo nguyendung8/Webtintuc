@@ -15,7 +15,7 @@ class FrontendController extends Controller
 {
     public function getHome()
     {
-        $product_featured = VpProduct::where('prod_featured',1)->orderBy('prod_id', 'asc')->paginate(3);
+        $product_featured = VpProduct::where('prod_featured',1)->orderBy('prod_id', 'asc')->paginate(6);
         $product_new = VpProduct::orderBy('prod_id', 'desc')->take(3)->get();
         return view('frontend.home', compact('product_featured', 'product_new'));
     }
@@ -29,7 +29,7 @@ class FrontendController extends Controller
     public function getCategory($id)
     {
         $category = VpCategory::find($id);
-        $product_cate = VpProduct::where('prod_cate', $id)->orderBy('prod_id', 'asc')->paginate(5);
+        $product_cate = VpProduct::where('prod_cate', $id)->orderBy('prod_id', 'asc')->paginate(6);
 
         return view('frontend.category', compact('product_cate', 'category'));
     }
@@ -51,7 +51,7 @@ class FrontendController extends Controller
         $keyword = $result;
         $result = Str::replace(' ', '%', $result);
 
-        $prod_search = VpProduct::where ('prod_name', 'like', '%' . $result . '%')->paginate(5);
+        $prod_search = VpProduct::where ('prod_name', 'like', '%' . $result . '%')->paginate(6);
 
         return view('frontend.search', compact('prod_search', 'keyword'));
     }
