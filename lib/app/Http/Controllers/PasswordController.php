@@ -27,7 +27,7 @@ class PasswordController extends Controller
         $user->password = Hash::make($request->new_password);
         $user->save();
 
-        return redirect()->intended('/homepage')->with('success', 'Đổi mật khẩu thành công!');
+        return redirect()->intended('/')->with('success', 'Đổi mật khẩu thành công!');
     }
 
 }

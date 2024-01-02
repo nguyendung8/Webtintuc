@@ -32,7 +32,7 @@
 		});
 	</script>
         <style>
-            .logout-btn {
+           .logout-btn {
                 position: absolute;
                 right: 107px;
                 top: 15px;
@@ -172,6 +172,18 @@
 			.submit {
 				background-color: #fff;
 			}
+            .login-btn {
+                position: absolute;
+                top: 33px;
+                right: 153px;
+                color: #fff;
+                font-size: 17px;
+                border: 1px solid #ddd;
+                height: fit-content;
+                padding: 6px 10px;
+                border-radius: 5px;
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            }
         </style>
 </head>
 <body>
@@ -189,13 +201,13 @@
                     <a href="{{ asset('logout') }}">Đăng xuất</a></li>
                 </div> -->
 				<div id="logo" class="col-md-3 col-sm-12 col-xs-12">
-					<a style="text-decoration: none;" href="{{ asset('/homepage') }}">
+					<a style="text-decoration: none;" href="{{ asset('/') }}">
 					    <img src="img/home/logo2.png" alt="">
 					</a>
 				</div>
 
 				<div>
-					<form action="{{asset('homepage/search/')}}" method="get">
+					<form action="{{asset('/search/')}}" method="get">
 						<input class="input" type="text" name="result" placeholder="Nhập tên sản phẩm ..." required>
 						<input class="submit"type="submit" name="submit" value="Tìm Kiếm">
 					</form>
@@ -208,15 +220,17 @@
 					<a style="font-size: 18px; color:white" href="{{ asset('cart/show') }}">{{ Cart::count() }}</a>
         		</div>
 
-				<div class="user icon">
+				<div @if(Auth::check()) class="user icon">
 					<i class="fa fa-user-circle-o" aria-hidden="true"></i>
 					<ul class="subnav">
                         <li><a href="{{ asset('list-order') }}">Đơn hàng của tôi</a></li>
                         <li><a href="{{ asset('change-password') }}">Đổi mật khẩu</a></li>
                         <li><a href="{{ asset('logout') }}">Đăng xuất</a></li>
 					</ul>
+                    @endif
         		</div>
 			</div>
+            <a @if(!Auth::check()) href="{{ asset('/login') }}" class="login-btn">Đăng nhập</a>@endif
 		</div>
 	</header><!-- /header -->
 	<!-- endheader -->
@@ -230,7 +244,7 @@
 						<ul>
 							<li class="menu-item">Danh mục sản phẩm</li>
 							@foreach($categories as $category)
-							<li class="menu-item"><a style="text-decoration: none;" href="{{ asset('homepage/category/' . $category->cate_id) }}">{{ $category->cate_name }}</a></li>
+							<li class="menu-item"><a style="text-decoration: none;" href="{{ asset('/category/' . $category->cate_id) }}">{{ $category->cate_name }}</a></li>
 							@endforeach
 						</ul>
 						<!-- <a href="#" id="pull">Danh mục</a> -->
@@ -238,22 +252,22 @@
 
 					<div id="banner-l" class="text-center">
 						<div class="banner-l-item">
-							<a href="{{ asset('/homepage') }}"><img src="img/home/banner-l-1.png" alt="" class="img-thumbnail"></a>
+							<a href="{{ asset('/') }}"><img src="img/home/banner-l-1.png" alt="" class="img-thumbnail"></a>
 						</div>
 						<div class="banner-l-item">
-							<a href="{{ asset('/homepage') }}"><img src="img/home/banner-l-2.png" alt="" class="img-thumbnail"></a>
+							<a href="{{ asset('/') }}"><img src="img/home/banner-l-2.png" alt="" class="img-thumbnail"></a>
 						</div>
 						<div class="banner-l-item">
-							<a href="{{ asset('/homepage') }}"><img src="img/home/banner-l-3.png" alt="" class="img-thumbnail"></a>
+							<a href="{{ asset('/') }}"><img src="img/home/banner-l-3.png" alt="" class="img-thumbnail"></a>
 						</div>
 						<div class="banner-l-item">
-							<a href="{{ asset('/homepage') }}"><img src="img/home/banner-l-4.png" alt="" class="img-thumbnail"></a>
+							<a href="{{ asset('/') }}"><img src="img/home/banner-l-4.png" alt="" class="img-thumbnail"></a>
 						</div>
 						<div class="banner-l-item">
-							<a href="{{ asset('/homepage') }}"><img src="img/home/banner-l-5.png" alt="" class="img-thumbnail"></a>
+							<a href="{{ asset('/') }}"><img src="img/home/banner-l-5.png" alt="" class="img-thumbnail"></a>
 						</div>
 						<div class="banner-l-item">
-							<a href="{{ asset('/homepage') }}"><img src="img/home/banner-l-6.png" alt="" class="img-thumbnail"></a>
+							<a href="{{ asset('/') }}"><img src="img/home/banner-l-6.png" alt="" class="img-thumbnail"></a>
 						</div>
 						{{-- <div class="banner-l-item">
 							<a href="#"><img src="img/home/banner-l-7.png" alt="" class="img-thumbnail"></a>
@@ -299,10 +313,10 @@
 					<div id="banner-t" class="text-center">
 						<div class="row">
 							<div class="banner-t-item col-md-6 col-sm-12 col-xs-12">
-								<a href="{{ asset('/homepage') }}"><img src="img/home/banner-t-1.png" alt="" class="img-thumbnail"></a>
+								<a href="{{ asset('/') }}"><img src="img/home/banner-t-1.png" alt="" class="img-thumbnail"></a>
 							</div>
 							<div class="banner-t-item col-md-6 col-sm-12 col-xs-12">
-								<a href="{{ asset('/homepage') }}"><img src="img/home/banner-t-1.png" alt="" class="img-thumbnail"></a>
+								<a href="{{ asset('/') }}"><img src="img/home/banner-t-1.png" alt="" class="img-thumbnail"></a>
 							</div>
 						</div>
 					</div>
@@ -312,30 +326,7 @@
                     </div>
                 </div>
             </div>
-            <div class="contact-icon">
-                <i class="fa fa-comments contact-icon" aria-hidden="true"></i>
-            </div>
-            <div class="contact hidden">
-				@include('errors.note')
-                <form method="post">
-                    @csrf
-                    <h3 class="contact-title">Cảm ơn quý khách đã quan tâm tới MLD Shop! Xin vui lòng hoàn thành biểu mẫu dưới đây</h3>
-					<i class="fa fa-times close-btn close-contact" aria-hidden="true"></i>
-                    <label for="">Họ và tên</label>
-                    <div>
-                        <input type="text" name="name" id="" required>
-                    </div>
-                    <label for="">Số điện thoại <span style="color: red;">*</span></label>
-                    <div>
-                        <input type="text" name="phone_number" id="" required>
-                    </div>
-                    <label for="">Câu hỏi của bạn <span style="color: red;">*</span></label>
-                    <div>
-                        <input style="padding: 11px" type="text" name="question" id="" required max="255">
-                    </div>
-                    <button class="submit-contact-btn close-contact" type="submit">Gửi</button>
-                </form>
-            </div>
+
         </div>
     </section>
         <!-- endmain -->
@@ -346,13 +337,13 @@
                 <div class="container">
                     <div class="row">
                         <div id="logo" class="col-md-3 col-sm-12 col-xs-12">
-							<a style="text-decoration: none;" href="{{ asset('/homepage') }}">
+							<a style="text-decoration: none;" href="{{ asset('/') }}">
                                 <img src="img/home/logo2.png" alt="">
                             </a>
                         </div>
                         <div id="about" class="col-md-3 col-sm-12 col-xs-12">
                             <h3>About us</h3>
-                            <p class="text-justify">MLDShop thành lập năm 2022. Chúng tôi là nhà cung cấp các sản phẩm công nghệ hàng đầu Việt Nam cũng như trên toàn thế giới.</p>
+                            <p class="text-justify">MLDShop thành lập năm 2023. Chúng tôi là nhà cung cấp các sản phẩm công nghệ hàng đầu Việt Nam cũng như trên toàn thế giới.</p>
                         </div>
                         <div id="hotline" class="col-md-3 col-sm-12 col-xs-12">
                             <h3>Hotline</h3>

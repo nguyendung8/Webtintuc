@@ -65,6 +65,6 @@ class FrontendController extends Controller
         $question->user_id = Auth::id();
 
         $question->save();
-        return redirect()->intended('/homepage')->with('success', 'Bạn đã thêm câu hỏi thành công!');
+        return redirect()->intended('/')->with('success', 'Bạn đã thêm câu hỏi thành công!');
     }
 }
