@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\VpFavouriteProduct;
 use App\Models\VpOrder;
 use App\Models\VpProduct;
 use Illuminate\Http\Request;
@@ -75,5 +76,14 @@ class CartController extends Controller
     public function getComplete()
     {
         return view('frontend.complete');
+    }
+    public function addFavourite(Request $request, $id)
+    {
+        $favourite_prod = new VpFavouriteProduct;
+        $favourite_prod->user_id = Auth::id();
+        $favourite_prod->product_id = $id;
+
+        $favourite_prod->save();
+        return back()->with('success', 'Thêm sản phẩm vào danh sách yêu thích thành công!');
     }
 }
