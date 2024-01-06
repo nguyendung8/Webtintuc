@@ -16,4 +16,9 @@ class VpUser extends Model
         'email',
         'password',
     ];
+
+    public function favoriteProducts()
+    {
+        return $this->belongsToMany(VpProduct::class, 'vp_favourite_products', 'user_id', 'product_id');
+    }
 }

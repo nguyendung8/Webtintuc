@@ -59,6 +59,9 @@ Route::group(['prefix' => 'list-order','middleware' => 'CheckLogedOut'], functio
     Route::get('/received/{id}', [OrderUserController::class, 'receivedOrder']);
 });
 
+Route::group(['prefix' => 'list-favorite','middleware' => 'CheckLogedOut'], function (){
+    Route::get('/', [FrontendController::class, 'getListFavorite']);
+});
 
 // giỏ hàng
 Route::group(['prefix' => 'cart'], function (){

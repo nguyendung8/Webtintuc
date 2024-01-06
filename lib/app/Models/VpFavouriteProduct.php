@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\VpProduct;
 
 class VpFavouriteProduct extends Model
 {
@@ -11,5 +12,4 @@ class VpFavouriteProduct extends Model
 
     protected $table = 'vp_favourite_products';
     protected $guarded = [];
-
 }

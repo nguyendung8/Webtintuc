@@ -254,9 +254,10 @@
 				<div @if(Auth::check()) class="user icon">
 					<i class="fa fa-user-circle-o" aria-hidden="true"></i>
 					<ul class="subnav">
-                        <li><a href="{{ asset('list-order') }}">Đơn hàng của tôi</a></li>
-                        <li><a href="{{ asset('change-password') }}">Đổi mật khẩu</a></li>
-                        <li><a href="{{ asset('logout') }}">Đăng xuất</a></li>
+                        <li><a style="color: #f53d2d;" href="{{ asset('list-order') }}">Đơn hàng của tôi</a></li>
+                        <li><a style="color: #f53d2d;" href="{{ asset('list-favorite') }}">Sản phẩm yêu thích</a></li>
+                        <li><a style="color: #f53d2d;" href="{{ asset('change-password') }}">Đổi mật khẩu</a></li>
+                        <li><a style="color: #f53d2d;" href="{{ asset('logout') }}">Đăng xuất</a></li>
 					</ul>
                     @endif
         		</div>
