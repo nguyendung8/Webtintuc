@@ -153,8 +153,7 @@
 			}
 
 			#logo img {
-                width: 230px;
-                padding: 15px 0px;
+                width: 135px;
         	}
 
 			input {
@@ -233,7 +232,7 @@
 			<div style="flex-wrap: unset !important;" class="row">
 				<div id="logo" class="col-md-3 col-sm-12 col-xs-12">
 					<a style="text-decoration: none;" href="{{ asset('/') }}">
-					    <img src="img/home/logo2.png" alt="">
+					    <img src="img/home/logo.png" alt="">
 					</a>
 				</div>
 
@@ -365,7 +364,7 @@
                     <div class="row">
                         <div id="logo" class="col-md-3 col-sm-12 col-xs-12">
 							<a style="text-decoration: none;" href="{{ asset('/') }}">
-                                <img src="img/home/logo2.png" alt="">
+                                <img src="img/home/logo.png" alt="">
                             </a>
                         </div>
                         <div id="about" class="col-md-3 col-sm-12 col-xs-12">
