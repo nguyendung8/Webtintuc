@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title>Điện tử Mẫn - @yield('title')</title>
+	<title>StarManga - @yield('title')</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/home.css">
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
@@ -232,7 +232,7 @@
 			<div style="flex-wrap: unset !important;" class="row">
 				<div id="logo" class="col-md-3 col-sm-12 col-xs-12">
 					<a style="text-decoration: none;" href="{{ asset('/') }}">
-					    <img src="img/home/logo1.png" alt="">
+					    <img src="img/home/logo.png" alt="">
 					</a>
 				</div>
 
@@ -286,26 +286,23 @@
 
 					<div id="banner-l" class="text-center">
 						<div class="banner-l-item">
-							<a href="{{ asset('/') }}"><img src="img/home/banner-l-1.png" alt="" class="img-thumbnail"></a>
+							<a href="{{ asset('/') }}"><img src="img/home/banner1.jpg" alt="" class="img-thumbnail"></a>
 						</div>
 						<div class="banner-l-item">
-							<a href="{{ asset('/') }}"><img src="img/home/banner-l-2.png" alt="" class="img-thumbnail"></a>
+							<a href="{{ asset('/') }}"><img src="img/home/banner2.jpg" alt="" class="img-thumbnail"></a>
 						</div>
 						<div class="banner-l-item">
-							<a href="{{ asset('/') }}"><img src="img/home/banner-l-3.png" alt="" class="img-thumbnail"></a>
+							<a href="{{ asset('/') }}"><img src="img/home/banner3.jpg" alt="" class="img-thumbnail"></a>
 						</div>
 						<div class="banner-l-item">
-							<a href="{{ asset('/') }}"><img src="img/home/banner-l-4.png" alt="" class="img-thumbnail"></a>
+							<a href="{{ asset('/') }}"><img src="img/home/banner4.jpg" alt="" class="img-thumbnail"></a>
 						</div>
 						<div class="banner-l-item">
-							<a href="{{ asset('/') }}"><img src="img/home/banner-l-5.png" alt="" class="img-thumbnail"></a>
+							<a href="{{ asset('/') }}"><img src="img/home/banner5.jpg" alt="" class="img-thumbnail"></a>
 						</div>
-						<div class="banner-l-item">
-							<a href="{{ asset('/') }}"><img src="img/home/banner-l-6.png" alt="" class="img-thumbnail"></a>
-						</div>
-						{{-- <div class="banner-l-item">
-							<a href="#"><img src="img/home/banner-l-7.png" alt="" class="img-thumbnail"></a>
-						</div> --}}
+						{{--  <div class="banner-l-item">
+							<a href="{{ asset('/') }}"><img src="img/home/banner6.jpg" alt="" class="img-thumbnail"></a>
+						</div>  --}}
 					</div>
 				</div>
 				<div id="main" class="col-md-9">
@@ -324,16 +321,16 @@
 							<!-- The slideshow -->
 							<div class="carousel-inner">
 								<div class="carousel-item active">
-									<img style="border-radius: 3px;" width="800px" height="400px" src="img/home/slider1.webp" alt="Banner" >
+									<img style="border-radius: 3px;" width="800px" height="400px" src="img/home/slider1.jpg" alt="Banner" >
 								</div>
 								<div class="carousel-item">
-									<img style="border-radius: 3px;" width="800px" height="400px" src="img/home/slider2.webp" alt="Banner">
+									<img style="border-radius: 3px;" width="800px" height="400px" src="img/home/slider2.jpg" alt="Banner">
 								</div>
 								<div class="carousel-item">
-									<img style="border-radius: 3px;" width="800px" height="400px" src="img/home/slider3.webp" alt="Banner" >
+									<img style="border-radius: 3px;" width="800px" height="400px" src="img/home/slider3.jpg" alt="Banner" >
 								</div>
                                 <div class="carousel-item">
-									<img style="border-radius: 3px;" width="800px" height="400px" src="img/home/slider4.webp" alt="Banner" >
+									<img style="border-radius: 3px;" width="800px" height="400px" src="img/home/slider4.jpg" alt="Banner" >
 								</div>
 							</div>
 
@@ -364,23 +361,23 @@
                     <div class="row">
                         <div id="logo" class="col-md-3 col-sm-12 col-xs-12">
 							<a style="text-decoration: none;" href="{{ asset('/') }}">
-                                <img src="img/home/logo1.png" alt="">
+                                <img src="img/home/logo.png" alt="">
                             </a>
                         </div>
                         <div id="about" class="col-md-3 col-sm-12 col-xs-12">
                             <h3>About us</h3>
-                            <p class="text-justify">Điện tử Mẫn thành lập năm 2023. Chúng tôi là nhà cung cấp các sản phẩm công nghệ hàng đầu Việt Nam cũng như trên toàn thế giới.</p>
+                            <p class="text-justify">StarManga thành lập năm 2024. Chúng tôi là nhà cung cấp sách hàng đầu Việt Nam cũng như trên toàn thế giới.</p>
                         </div>
                         <div id="hotline" class="col-md-3 col-sm-12 col-xs-12">
                             <h3>Hotline</h3>
                             <p>Phone1: (+84) 934155611</p>
                             <p>Phone2: (+84) 523514521</p>
-                            <p>Email: dientuman@gmail.com</p>
+                            <p>Email: starmanga@gmail.com</p>
                         </div>
                         <div id="contact" class="col-md-3 col-sm-12 col-xs-12">
                             <h3>Contact Us</h3>
-                            <p>Address 1: Số 51/42 - Ngõ 85 Hạ Đình - Thanh Xuân - Hà Nội</p>
-                            <p>Address 2: Số 24 Lương Ngọc Quyến - Hàng Buồm - Hoàn Kiếm - Hà Nội</p>
+                            <p>Address 1: Số 12/9 - Cầu Giấy - Hà Nội</p>
+                            <p>Address 2: Số 401/123 - Xuân Đỉnh - Hà Nội</p>
                         </div>
                     </div>
                 </div>

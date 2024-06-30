@@ -14,6 +14,6 @@ class VpProduct extends Model
 
     public function favorite()
     {
-        return $this->hasMany(VpFavouriteProduct::class, 'product_id', 'prod_id');
+        return $this->hasMany(VpFavouriteProduct::class, 'favou_product', 'prod_id');
     }
 }

@@ -74,7 +74,7 @@ class FrontendController extends Controller
     public function getListFavorite()
     {
         $favoriteProducts = DB::table('vp_favourite_products')
-        ->join('vp_products', 'vp_favourite_products.product_id', '=', 'vp_products.prod_id')
+        ->join('vp_products', 'vp_favourite_products.favou_product', '=', 'vp_products.prod_id')
         ->where('vp_favourite_products.user_id', '=', Auth::id())
         ->select('vp_products.*')
         ->paginate(6);

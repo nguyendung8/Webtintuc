@@ -23,6 +23,10 @@
 										<label>Tên sản phẩm</label>
 										<input required type="text" name="product_name" class="form-control">
 									</div>
+                                    <div class="form-group">
+                                        <label>Tác giả</label>
+                                        <input required type="text" name="prod_author" class="form-control">
+                                    </div>
 									<div class="form-group" >
 										<label>Giá sản phẩm</label>
 										<input required type="number" name="price" class="form-control">
@@ -30,14 +34,6 @@
 									<div class="form-group" >
 										<label>Ảnh sản phẩm</label>
 										<input required id="img" type="file" name="img" class="form-control" >
-									</div>
-									<div class="form-group" >
-										<label>Phụ kiện</label>
-										<input required type="text" name="accessories" class="form-control">
-									</div>
-									<div class="form-group" >
-										<label>Bảo hành</label>
-										<input required type="text" name="warranty" class="form-control">
 									</div>
 									<div class="form-group" >
 										<label>Tình trạng</label>

@@ -67,7 +67,7 @@ class CartController extends Controller
 
             $message->to($email, $name);
 
-            $message->subject('Xác nhận hóa đơn mua hàng MLDShop');
+            $message->subject('Xác nhận hóa đơn mua hàng StarManga');
 
         });
         Cart::destroy();
@@ -81,7 +81,7 @@ class CartController extends Controller
     {
         $favourite_prod = new VpFavouriteProduct;
         $favourite_prod->user_id = Auth::id();
-        $favourite_prod->product_id = $id;
+        $favourite_prod->favou_product = $id;
 
         $favourite_prod->save();
         return back()->with('success', 'Thêm sản phẩm vào danh sách yêu thích thành công!');

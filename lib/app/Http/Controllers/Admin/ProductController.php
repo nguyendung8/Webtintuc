@@ -31,11 +31,10 @@ class ProductController extends Controller
         $product = new VpProduct;
 
         $product->prod_name = $request->product_name;
+        $product->prod_author = $request->prod_author;
         $product->prod_slug = Str::slug( $request->product_name);
         $product->prod_img = $filename;
-        $product->prod_accessories = $request->accessories;
         $product->prod_price = $request->price;
-        $product->prod_warranty = $request->warranty;
         $product->prod_condition = $request->condition;
         $product->prod_status = $request->status;
         $product->prod_description = $request->description;
@@ -59,10 +58,9 @@ class ProductController extends Controller
         $product = VpProduct::find($id);
 
         $product->prod_name = $request->product_name;
+        $product->prod_author = $request->prod_author;
         $product->prod_slug = Str::slug($request->product_name);
-        $product->prod_accessories = $request->accessories;
         $product->prod_price = $request->price;
-        $product->prod_warranty = $request->warranty;
         $product->prod_condition = $request->condition;
         $product->prod_status = $request->status;
         $product->prod_description = $request->description;

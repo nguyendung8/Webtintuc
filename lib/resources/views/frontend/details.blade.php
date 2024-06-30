@@ -25,8 +25,8 @@
 					<img width="210px" src="{{ asset('lib/storage/app/avatar/'.$product->prod_img) }}">
                     <div style="display: flex; align-items: center ; gap: 8px; justify-content: center; margin-top:7px;">
                         @php
-                            $isLiked = DB::table('vp_favourite_products')->where('user_id', Auth::id())->where('product_id', $product->prod_id)->exists();
-                            $count = DB::table('vp_favourite_products')->where('product_id', $product->prod_id)->count();
+                            $isLiked = DB::table('vp_favourite_products')->where('user_id', Auth::id())->where('favou_product', $product->prod_id)->exists();
+                            $count = DB::table('vp_favourite_products')->where('favou_product', $product->prod_id)->count();
                         @endphp
                         @if($count > 0 && $isLiked)
                         <svg width="24" height="20" class="x0F377"><path d="M19.469 1.262c-5.284-1.53-7.47 4.142-7.47 4.142S9.815-.269 4.532 1.262C-1.937 3.138.44 13.832 12 19.333c11.559-5.501 13.938-16.195 7.469-18.07z" stroke="#FF424F" stroke-width="1.5" fill="#FF424F" fill-rule="evenodd" stroke-linejoin="round"></path></svg>
@@ -40,8 +40,7 @@
                 </div>
 				<div id="product-details" class="col-xs-12 col-sm-12 col-md-9">
 					<p>Giá: <span class="price">{{ number_format($product->prod_price,0,',','.' )}} VND</span></p>
-					<p>Bảo hành: {{ $product->prod_warranty }}</p>
-					<p>Phụ kiện: {{ $product->prod_accessories }}</p>
+					<p>Tác giả: {{ $product->prod_author }}</p>
 					<p>Tình trạng: {{ $product->prod_condition }}</p>
 					<p>Còn hàng: @if($product->prod_status == 1) Còn hàng @else Đã hết @endif</p>
 					<p class="add-cart text-center"><a href="{{ asset('cart/add/' . $product->prod_id) }}">Thêm vào giỏ hàng</a></p>
