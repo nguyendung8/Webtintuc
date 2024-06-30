@@ -327,7 +327,7 @@
 									<img style="border-radius: 3px;" width="800px" height="400px" src="img/home/slider2.jpg" alt="Banner">
 								</div>
 								<div class="carousel-item">
-									<img style="border-radius: 3px;" width="800px" height="400px" src="img/home/slider3.jpg" alt="Banner" >
+									<img style="border-radius: 3px;" width="800px" height="400px" src="img/home/slider3.png" alt="Banner" >
 								</div>
                                 <div class="carousel-item">
 									<img style="border-radius: 3px;" width="800px" height="400px" src="img/home/slider4.jpg" alt="Banner" >
