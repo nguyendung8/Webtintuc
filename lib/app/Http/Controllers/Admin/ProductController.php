@@ -35,15 +35,10 @@ class ProductController extends Controller
         $product->prod_img = $filename;
         $product->prod_price = $request->price;
         $product->prod_condition = $request->condition;
-        $product->prod_vehicle = $request->vehicle;
         $product->prod_status = $request->status;
         $product->prod_description = $request->description;
         $product->prod_cate = $request->cate;
         $product->prod_featured = $request->featured;
-        $product->prod_fuel = $request->fuel;
-        $product->prod_odo = $request->odo;
-        $product->prod_seat = $request->seat;
-        $product->prod_gear = $request->gear;
         $request->img->storeAs('avatar',$filename);
         $product->save();
 
@@ -65,15 +60,10 @@ class ProductController extends Controller
         $product->prod_slug = Str::slug($request->product_name);
         $product->prod_price = $request->price;
         $product->prod_condition = $request->condition;
-        $product->prod_vehicle = $request->vehicle;
         $product->prod_status = $request->status;
         $product->prod_description = $request->description;
         $product->prod_cate = $request->cate;
         $product->prod_featured = $request->featured;
-        $product->prod_fuel = $request->fuel;
-        $product->prod_odo = $request->odo;
-        $product->prod_seat = $request->seat;
-        $product->prod_gear = $request->gear;
         if($request->hasFile('img')) {
             $img = $request->img->getClientOriginalName();
             $product->prod_img = $img;

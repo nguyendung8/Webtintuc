@@ -24,7 +24,7 @@
 										<input required type="text" name="product_name" class="form-control">
 									</div>
                                     <div class="form-group" >
-										<label>Loại xe</label>
+										<label>Danh mục</label>
 										<select required name="cate" class="form-control">
 											@foreach($categories as $category)
 											<option value="{{ $category->cate_id }}">{{ $category->cate_name }}</option>
@@ -43,32 +43,12 @@
 										<label>Tình trạng</label>
 										<input required type="text" name="condition" class="form-control">
 									</div>
-                                    <div class="form-group" >
-										<label>Dòng xe</label>
-										<input required type="text" name="vehicle" class="form-control">
-									</div>
 									<div class="form-group" >
 										<label>Trạng thái</label>
 										<select required name="status" class="form-control">
 											<option value="1">Còn hàng</option>
 											<option value="0">Hết hàng</option>
 					                    </select>
-									</div>
-                                    <div class="form-group" >
-										<label>Nhiên liệu</label>
-										<input required type="text" name="fuel" class="form-control">
-									</div>
-                                    <div class="form-group" >
-										<label>ODO</label>
-										<input required type="text" name="odo" class="form-control">
-									</div>
-                                    <div class="form-group" >
-										<label>Số chỗ ngồi</label>
-										<input required type="text" name="seat" class="form-control">
-									</div>
-                                    <div class="form-group" >
-										<label>Hộp số</label>
-										<input required type="text" name="gear" class="form-control">
 									</div>
 									<div class="form-group" >
 										<label>Miêu tả</label>

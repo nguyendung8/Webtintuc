@@ -24,7 +24,7 @@
 										<input required type="text" name="product_name" class="form-control" value="{{ $product->prod_name }}">
 									</div>
                                     <div class="form-group" >
-                                        <label>Loại xe</label>
+                                        <label>Danh mục</label>
                                         <select required name="cate" class="form-control">
                                             @foreach($categories as $category)
                                             <option value="{{ $category->cate_id }}" @if($product->prod_cate == $category->cate_id) selected  @endif>{{ $category->cate_name }}</option>
@@ -43,33 +43,6 @@
 									<div class="form-group" >
 										<label>Tình trạng</label>
 										<input required type="text" name="condition" class="form-control" value="{{ $product->prod_condition}}">
-									</div>
-                                    <div class="form-group" >
-										<label>Dòng xe</label>
-										<input required type="text" name="vehicle" class="form-control" value="{{ $product->prod_vehicle}}">
-									</div>
-									<div class="form-group" >
-										<label>Trạng thái</label>
-										<select required name="status" class="form-control">
-											<option value="1" @if($product->prod_status == 1) selected  @endif>Còn hàng</option>
-											<option value="0" @if($product->prod_status == 0) selected  @endif>Hết hàng</option>
-					                    </select>
-									</div>
-                                    <div class="form-group" >
-										<label>Nhiên liệu</label>
-										<input required type="text" name="fuel" class="form-control" value="{{ $product->prod_fuel}}">
-									</div>
-                                    <div class="form-group" >
-										<label>ODO</label>
-										<input required type="text" name="odo" class="form-control" value="{{ $product->prod_odo}}">
-									</div>
-                                    <div class="form-group" >
-										<label>Số chỗ ngồi</label>
-										<input required type="text" name="seat" class="form-control" value="{{ $product->prod_seat}}">
-									</div>
-                                    <div class="form-group" >
-										<label>Hộp số</label>
-										<input required type="text" name="gear" class="form-control" value="{{ $product->prod_gear}}">
 									</div>
 									<div class="form-group" >
 										<label>Miêu tả</label>
