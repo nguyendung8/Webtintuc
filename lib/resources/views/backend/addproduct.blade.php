@@ -23,10 +23,14 @@
 										<label>Tên sản phẩm</label>
 										<input required type="text" name="product_name" class="form-control">
 									</div>
-                                    <div class="form-group">
-                                        <label>Tác giả</label>
-                                        <input required type="text" name="prod_author" class="form-control">
-                                    </div>
+                                    <div class="form-group" >
+										<label>Loại xe</label>
+										<select required name="cate" class="form-control">
+											@foreach($categories as $category)
+											<option value="{{ $category->cate_id }}">{{ $category->cate_name }}</option>
+											@endforeach
+					                    </select>
+									</div>
 									<div class="form-group" >
 										<label>Giá sản phẩm</label>
 										<input required type="number" name="price" class="form-control">
@@ -39,6 +43,10 @@
 										<label>Tình trạng</label>
 										<input required type="text" name="condition" class="form-control">
 									</div>
+                                    <div class="form-group" >
+										<label>Dòng xe</label>
+										<input required type="text" name="vehicle" class="form-control">
+									</div>
 									<div class="form-group" >
 										<label>Trạng thái</label>
 										<select required name="status" class="form-control">
@@ -46,26 +54,25 @@
 											<option value="0">Hết hàng</option>
 					                    </select>
 									</div>
+                                    <div class="form-group" >
+										<label>Nhiên liệu</label>
+										<input required type="text" name="fuel" class="form-control">
+									</div>
+                                    <div class="form-group" >
+										<label>ODO</label>
+										<input required type="text" name="odo" class="form-control">
+									</div>
+                                    <div class="form-group" >
+										<label>Số chỗ ngồi</label>
+										<input required type="text" name="seat" class="form-control">
+									</div>
+                                    <div class="form-group" >
+										<label>Hộp số</label>
+										<input required type="text" name="gear" class="form-control">
+									</div>
 									<div class="form-group" >
 										<label>Miêu tả</label>
 										<textarea class="ckeditor" required name="description"></textarea>
-										{{-- <script type="text/javascript">
-											var editor= CKEDITOR.replace('description',{
-											language:'vi',
-											filebrowerImageBrowseUrl:'../../editor/ckfinder/ckfinder.html?Type=Images',
-											filebrowerFlashBrowseUrl:'../../editor/ckfinder/ckfinder.html?Type=Flash',
-											filebrowerImageUploadUrl:'../../editor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-											filebrowerFlashUploadUrl:'../../editor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash' ,
-											});
-										</script> --}}
-									</div>
-									<div class="form-group" >
-										<label>Danh mục</label>
-										<select required name="cate" class="form-control">
-											@foreach($categories as $category)
-											<option value="{{ $category->cate_id }}">{{ $category->cate_name }}</option>
-											@endforeach
-					                    </select>
 									</div>
 									<div class="form-group" >
 										<label>Sản phẩm nổi bật</label><br>

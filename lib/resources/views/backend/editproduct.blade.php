@@ -23,9 +23,13 @@
 										<label>Tên sản phẩm</label>
 										<input required type="text" name="product_name" class="form-control" value="{{ $product->prod_name }}">
 									</div>
-                                    <div class="form-group">
-                                        <label>Tác giả</label>
-                                        <input required type="text" name="prod_author" class="form-control" value="{{ $product->prod_author }}">
+                                    <div class="form-group" >
+                                        <label>Loại xe</label>
+                                        <select required name="cate" class="form-control">
+                                            @foreach($categories as $category)
+                                            <option value="{{ $category->cate_id }}" @if($product->prod_cate == $category->cate_id) selected  @endif>{{ $category->cate_name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
 									<div class="form-group" >
 										<label>Giá sản phẩm</label>
@@ -40,6 +44,10 @@
 										<label>Tình trạng</label>
 										<input required type="text" name="condition" class="form-control" value="{{ $product->prod_condition}}">
 									</div>
+                                    <div class="form-group" >
+										<label>Dòng xe</label>
+										<input required type="text" name="vehicle" class="form-control" value="{{ $product->prod_vehicle}}">
+									</div>
 									<div class="form-group" >
 										<label>Trạng thái</label>
 										<select required name="status" class="form-control">
@@ -47,17 +55,25 @@
 											<option value="0" @if($product->prod_status == 0) selected  @endif>Hết hàng</option>
 					                    </select>
 									</div>
+                                    <div class="form-group" >
+										<label>Nhiên liệu</label>
+										<input required type="text" name="fuel" class="form-control" value="{{ $product->prod_fuel}}">
+									</div>
+                                    <div class="form-group" >
+										<label>ODO</label>
+										<input required type="text" name="odo" class="form-control" value="{{ $product->prod_odo}}">
+									</div>
+                                    <div class="form-group" >
+										<label>Số chỗ ngồi</label>
+										<input required type="text" name="seat" class="form-control" value="{{ $product->prod_seat}}">
+									</div>
+                                    <div class="form-group" >
+										<label>Hộp số</label>
+										<input required type="text" name="gear" class="form-control" value="{{ $product->prod_gear}}">
+									</div>
 									<div class="form-group" >
 										<label>Miêu tả</label>
 										<textarea class="ckeditor" required name="description">{{ $product->prod_description}}</textarea>
-									</div>
-									<div class="form-group" >
-										<label>Danh mục</label>
-										<select required name="cate" class="form-control">
-											@foreach($categories as $category)
-											<option value="{{ $category->cate_id }}" @if($product->prod_cate == $category->cate_id) selected  @endif>{{ $category->cate_name }}</option>
-											@endforeach
-					                    </select>
 									</div>
 									<div class="form-group" >
 										<label>Sản phẩm nổi bật</label><br>

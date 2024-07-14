@@ -29,7 +29,7 @@
 					</tr>
 					@foreach($products as $product)
 						<tr>
-							<td><img class="img-responsive" src="{{ asset('lib/storage/app/avatar/'.$product->options->img) }}"></td>
+							<td><img width="200px" class="img-responsive" src="{{ asset('lib/storage/app/avatar/'.$product->options->img) }}"></td>
 							<td>{{ $product->name }}</td>
 							<td>
 								<div class="form-group">

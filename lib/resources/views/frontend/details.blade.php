@@ -40,9 +40,12 @@
                 </div>
 				<div id="product-details" class="col-xs-12 col-sm-12 col-md-9">
 					<p>Giá: <span class="price">{{ number_format($product->prod_price,0,',','.' )}} VND</span></p>
-					<p>Tác giả: {{ $product->prod_author }}</p>
+					<p>Dòng xe: {{ $product->prod_vehicle }}</p>
 					<p>Tình trạng: {{ $product->prod_condition }}</p>
-					<p>Còn hàng: @if($product->prod_status == 1) Còn hàng @else Đã hết @endif</p>
+                    <p>Nhiên liệu: {{ $product->prod_fuel }}</p>
+                    <p>ODO: {{ $product->prod_odo }}</p>
+                    <p>Số chỗ ngồi: {{ $product->prod_seat }}</p>
+                    <p>Hộp số: {{ $product->prod_gear }}</p>
 					<p class="add-cart text-center"><a href="{{ asset('cart/add/' . $product->prod_id) }}">Thêm vào giỏ hàng</a></p>
 				</div>
 			</div>
