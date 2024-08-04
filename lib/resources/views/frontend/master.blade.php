@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title> Bigsize Thiên An - @yield('title')</title>
+	<title> Ngọc Duy - @yield('title')</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/home.css">
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
@@ -232,7 +232,7 @@
 			<div style="flex-wrap: unset !important;" class="row">
 				<div id="logo" class="col-md-3 col-sm-12 col-xs-12">
 					<a style="text-decoration: none;" href="{{ asset('/') }}">
-					    <img style="width: 149px !important;" src="img/home/logo.png" alt="">
+					    <img style="width: 100px !important;" src="img/home/logo-vlxd.png" alt="">
 					</a>
 				</div>
 
@@ -286,13 +286,13 @@
 
 					<div id="banner-l" class="text-center">
 						<div class="banner-l-item">
-							<a href="{{ asset('/') }}"><img src="img/home/banner1.jpeg" alt="" class="img-thumbnail"></a>
+							<a href="{{ asset('/') }}"><img src="img/home/banner1.png" alt="" class="img-thumbnail"></a>
 						</div>
 						<div class="banner-l-item">
-							<a href="{{ asset('/') }}"><img src="img/home/banner2.jpeg" alt="" class="img-thumbnail"></a>
+							<a href="{{ asset('/') }}"><img src="img/home/banner2.png" alt="" class="img-thumbnail"></a>
 						</div>
 						<div class="banner-l-item">
-							<a href="{{ asset('/') }}"><img src="img/home/banner3.jpeg" alt="" class="img-thumbnail"></a>
+							<a href="{{ asset('/') }}"><img src="img/home/banner3.png" alt="" class="img-thumbnail"></a>
 						</div>
 						{{--  <div class="banner-l-item">
 							<a href="{{ asset('/') }}"><img src="img/home/banner4.jpeg" alt="" class="img-thumbnail"></a>
@@ -318,16 +318,22 @@
 							<!-- The slideshow -->
 							<div class="carousel-inner">
 								<div class="carousel-item active">
-									<img style="border-radius: 3px;" width="900px" height="400px" src="img/home/slider1.jpeg" alt="Banner" >
+									<img style="border-radius: 3px;" width="900px" height="400px" src="img/home/slide1.webp" alt="Banner" >
 								</div>
 								<div class="carousel-item">
-									<img style="border-radius: 3px;" width="900px" height="400px" src="img/home/slider2.jpeg" alt="Banner">
+									<img style="border-radius: 3px;" width="900px" height="400px" src="img/home/slide2.webp" alt="Banner">
 								</div>
 								<div class="carousel-item">
-									<img style="border-radius: 3px;" width="900px" height="400px" src="img/home/slider3.png" alt="Banner" >
+									<img style="border-radius: 3px;" width="900px" height="400px" src="img/home/slide3.webp" alt="Banner" >
 								</div>
                                 <div class="carousel-item">
-									<img style="border-radius: 3px;" width="900px" height="400px" src="img/home/slider4.jpeg" alt="Banner">
+									<img style="border-radius: 3px;" width="900px" height="400px" src="img/home/slide4.webp" alt="Banner">
+								</div>
+                                <div class="carousel-item">
+									<img style="border-radius: 3px;" width="900px" height="400px" src="img/home/slide5.webp" alt="Banner">
+								</div>
+                                <div class="carousel-item">
+									<img style="border-radius: 3px;" width="900px" height="400px" src="img/home/slide6.webp" alt="Banner">
 								</div>
 							</div>
 
@@ -358,18 +364,18 @@
                     <div class="row">
                         <div id="logo" class="col-md-3 col-sm-12 col-xs-12">
 							<a style="text-decoration: none;" href="{{ asset('/') }}">
-                                <img style="width: 180px !important;" src="img/home/logo.png" alt="">
+                                <img style="width: 130px !important;" src="img/home/logo-vlxd.png" alt="">
                             </a>
                         </div>
                         <div id="about" class="col-md-3 col-sm-12 col-xs-12">
                             <h3>About us</h3>
-                            <p class="text-justify"> Bigsize Thiên An thành lập năm 2024. Chúng tôi là cửa hàng bán quần áo Bigsize uy tín hàng đầu Việt Nam cũng như trên toàn thế giới.</p>
+                            <p class="text-justify"> Ngọc Duy thành lập năm 2024. Chúng tôi là cửa hàng bán vật liệu xây dựng uy tín hàng đầu Việt Nam cũng như trên toàn thế giới.</p>
                         </div>
                         <div id="hotline" class="col-md-3 col-sm-12 col-xs-12">
                             <h3>Hotline</h3>
                             <p>Phone1: (+84) 934155611</p>
                             <p>Phone2: (+84) 523514521</p>
-                            <p>Email: bigsizethienan@gmail.com</p>
+                            <p>Email: ngocduy@gmail.com</p>
                         </div>
                         <div id="contact" class="col-md-3 col-sm-12 col-xs-12">
                             <h3>Contact Us</h3>

@@ -47,7 +47,7 @@ class OrderController extends Controller
 
             $message->to($email, $name);
 
-            $message->subject('Thông báo đơn hàng của bạn đã được xác nhận tại Bigsize Thiên An');
+            $message->subject('Thông báo đơn hàng của bạn đã được xác nhận tại Ngọc Duy');
 
         });
         return redirect()->intended('admin/order')->with('success', 'Xác nhận đơn hàng thành công!');
@@ -67,7 +67,7 @@ class OrderController extends Controller
 
             $message->to($email, $name);
 
-            $message->subject('Thông báo đơn hàng của bạn đang được vận chuyển từ Bigsize Thiên An');
+            $message->subject('Thông báo đơn hàng của bạn đang được vận chuyển từ Ngọc Duy');
 
         });
         return redirect()->intended('admin/order')->with('success', 'Cập nhật đơn hàng thành công!');;
