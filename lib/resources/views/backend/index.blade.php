@@ -18,25 +18,12 @@
 						</div>
 						<div class="col-sm-9 col-lg-7 widget-right">
 							<div class="large">{{ $product_cnt }}</div>
-							<div class="text-muted">Sản phẩm</div>
+							<div class="text-muted">Tin tức</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-xs-12 col-md-6 col-lg-3">
-				<div class="panel panel-orange panel-widget">
-					<div class="row no-padding">
-						<div class="col-sm-3 col-lg-5 widget-left">
-							<svg class="glyph stroked empty-message"><use xlink:href="#stroked-empty-message"></use></svg>
-						</div>
-						<div class="col-sm-9 col-lg-7 widget-right">
-							<div class="large">{{ $question_cnt }}</div>
-							<div class="text-muted">Tin nhắn</div>
-						</div>
-					</div>
-				</div>
-			</div>
-            <div class="col-xs-12 col-md-6 col-lg-3">
+            {{--  <div class="col-xs-12 col-md-6 col-lg-3">
 				<div  style="background: #3552ae; color: #fff;" class="panel panel-widget">
 					<div class="row no-padding">
 						<div class="col-sm-3 col-lg-5 widget-left">
@@ -48,7 +35,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>  --}}
 			<div class="col-xs-12 col-md-6 col-lg-3">
 				<div class="panel panel-teal panel-widget">
 					<div class="row no-padding">
@@ -71,19 +58,6 @@
 						<div class="col-sm-9 col-lg-7 widget-right">
 							<div class="large">{{ $category_cnt }}</div>
 							<div class="text-muted">Danh mục</div>
-						</div>
-					</div>
-				</div>
-			</div>
-            <div class="col-xs-12 col-md-6 col-lg-3">
-				<div style="background: #35ae39; color: #fff;" class="panel panel-widget">
-					<div class="row no-padding">
-						<div class="col-sm-3 col-lg-5 widget-left">
-							<i style="font-size: 47px; margin-right: 7px;" class="fa fa-cart-plus" aria-hidden="true"></i>
-						</div>
-						<div class="col-sm-9 col-lg-7 widget-right">
-							<div class="large">{{ $order_cnt }}</div>
-							<div class="text-muted">Đơn hàng</div>
 						</div>
 					</div>
 				</div>

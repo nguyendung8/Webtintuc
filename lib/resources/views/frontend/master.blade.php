@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title> Ngọc Duy - @yield('title')</title>
+	<title> News - @yield('title')</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/home.css">
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
@@ -218,6 +218,66 @@
             .menu-item a:hover {
                 color: #fff;
             }
+            /* Style chung */
+            .news-container {
+                margin-bottom: 20px;
+            }
+            .news-title {
+                font-size: 24px;
+                font-weight: bold;
+                margin-bottom: 15px;
+                color: #222;
+            }
+            .news-title a {
+                color: #222;
+                text-decoration: none;
+            }
+            .news-title a:hover {
+                color: #2f3192;
+            }
+            .news-description {
+                font-size: 14px;
+                color: #555;
+                margin-bottom: 10px;
+            }
+            .news-meta {
+                font-size: 12px;
+                color: #888;
+            }
+            .news-thumb {
+                position: relative;
+                overflow: hidden;
+                margin-bottom: 10px;
+            }
+            .news-thumb img {
+                width: 100%;
+                height: auto;
+                transition: transform 0.3s;
+            }
+            .news-thumb:hover img {
+                transform: scale(1.05);
+            }
+            .news-category {
+                display: inline-block;
+                padding: 2px 8px;
+                background: #2f3192;
+                color: #fff;
+                font-size: 12px;
+                border-radius: 3px;
+                margin-bottom: 5px;
+            }
+            .news-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+            .news-item {
+                border-bottom: 1px solid #eee;
+                padding-bottom: 15px;
+            }
+            .news-item:last-child {
+                border-bottom: none;
+            }
         </style>
 </head>
 <body>
@@ -232,29 +292,20 @@
 			<div style="flex-wrap: unset !important;" class="row">
 				<div id="logo" class="col-md-3 col-sm-12 col-xs-12">
 					<a style="text-decoration: none;" href="{{ asset('/') }}">
-					    <img style="width: 100px !important;" src="img/home/logo-vlxd.png" alt="">
+					    <img style="width: 60px !important; margin-top: 15px;" src="img/home/logo-news.png" alt="">
 					</a>
 				</div>
 
 				<div>
-					<form action="{{asset('/search/')}}" method="get">
-						<input class="input" type="text" name="result" placeholder="Nhập tên sản phẩm ..." required>
+					<form action="{{ route('search') }}" method="get">
+						<input class="input" type="text" name="result" placeholder="Nhập tiêu đề tin tức ..." required>
 						<input class="submit"type="submit" name="submit" value="Tìm Kiếm">
 					</form>
 				</div>
 
-				<div class="cart icon">
-					<a style="color:white;margin-left:10px" class="display" href="{{ asset('cart/show') }}">
-						<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-					</a>
-					<a style="font-size: 18px; color:white" href="{{ asset('cart/show') }}">{{ Cart::count() }}</a>
-        		</div>
-
 				<div @if(Auth::check()) class="user icon">
 					<i class="fa fa-user-circle-o" aria-hidden="true"></i>
 					<ul class="subnav">
-                        <li><a style="color: #f53d2d;" href="{{ asset('list-order') }}">Đơn hàng của tôi</a></li>
-                        <li><a style="color: #f53d2d;" href="{{ asset('list-favorite') }}">Sản phẩm yêu thích</a></li>
                         <li><a style="color: #f53d2d;" href="{{ asset('change-password') }}">Đổi mật khẩu</a></li>
                         <li><a style="color: #f53d2d;" href="{{ asset('logout') }}">Đăng xuất</a></li>
 					</ul>
@@ -276,85 +327,19 @@
 				<div id="sidebar" class="col-md-3">
 					<nav id="menu">
 						<ul style="margin-bottom: 0px;">
-							<li class="menu-item menu-head">Danh mục sản phẩm</li>
+							<li class="menu-item menu-head">Danh mục tin tức</li>
 							@foreach($categories as $category)
-							<li class="menu-item"><a style="text-decoration: none;" href="{{ asset('/category/' . $category->cate_id) }}">{{ $category->cate_name }}</a></li>
+							<li class="menu-item"><a style="text-decoration: none;" href="{{ route('category', $category->cate_id) }}">{{ $category->cate_name }}</a></li>
 							@endforeach
 						</ul>
-						<!-- <a href="#" id="pull">Danh mục</a> -->
 					</nav>
-
-					<div id="banner-l" class="text-center">
-						<div class="banner-l-item">
-							<a href="{{ asset('/') }}"><img src="img/home/banner1.png" alt="" class="img-thumbnail"></a>
-						</div>
-						<div class="banner-l-item">
-							<a href="{{ asset('/') }}"><img src="img/home/banner2.png" alt="" class="img-thumbnail"></a>
-						</div>
-						<div class="banner-l-item">
-							<a href="{{ asset('/') }}"><img src="img/home/banner3.png" alt="" class="img-thumbnail"></a>
-						</div>
-						{{--  <div class="banner-l-item">
-							<a href="{{ asset('/') }}"><img src="img/home/banner4.jpeg" alt="" class="img-thumbnail"></a>
-						</div>  --}}
-						{{--  <div class="banner-l-item">
-							<a href="{{ asset('/') }}"><img src="img/home/banner3.jpeg" alt="" class="img-thumbnail"></a>
-						</div>  --}}
-					</div>
 				</div>
 				<div id="main" class="col-md-9">
-					<!-- main -->
-					<!-- phan slide la cac hieu ung chuyen dong su dung jquey -->
-					<div id="slider">
-						<div id="demo" class="carousel slide" data-ride="carousel">
-
-							<!-- Indicators -->
-							<ul class="carousel-indicators">
-								<li data-target="#demo" data-slide-to="0" class="active"></li>
-								<li data-target="#demo" data-slide-to="1"></li>
-								<li data-target="#demo" data-slide-to="2"></li>
-							</ul>
-
-							<!-- The slideshow -->
-							<div class="carousel-inner">
-								<div class="carousel-item active">
-									<img style="border-radius: 3px;" width="900px" height="400px" src="img/home/slide1.webp" alt="Banner" >
-								</div>
-								<div class="carousel-item">
-									<img style="border-radius: 3px;" width="900px" height="400px" src="img/home/slide2.webp" alt="Banner">
-								</div>
-								<div class="carousel-item">
-									<img style="border-radius: 3px;" width="900px" height="400px" src="img/home/slide3.webp" alt="Banner" >
-								</div>
-                                <div class="carousel-item">
-									<img style="border-radius: 3px;" width="900px" height="400px" src="img/home/slide4.webp" alt="Banner">
-								</div>
-                                <div class="carousel-item">
-									<img style="border-radius: 3px;" width="900px" height="400px" src="img/home/slide5.webp" alt="Banner">
-								</div>
-                                <div class="carousel-item">
-									<img style="border-radius: 3px;" width="900px" height="400px" src="img/home/slide6.webp" alt="Banner">
-								</div>
-							</div>
-
-							<!-- Left and right controls -->
-							<a class="carousel-control-prev" href="#demo" data-slide="prev">
-								<span class="carousel-control-prev-icon"></span>
-							</a>
-							<a class="carousel-control-next" href="#demo" data-slide="next">
-								<span class="carousel-control-next-icon"></span>
-							</a>
-						</div>
-					</div>
-
-                    @yield('main')
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
+					@yield('main')
+				</div>
+			</div>
+		</div>
+	</section>
         <!-- endmain -->
 
         <!-- footer -->
@@ -364,18 +349,18 @@
                     <div class="row">
                         <div id="logo" class="col-md-3 col-sm-12 col-xs-12">
 							<a style="text-decoration: none;" href="{{ asset('/') }}">
-                                <img style="width: 130px !important;" src="img/home/logo-vlxd.png" alt="">
+                                <img style="width: 80px !important;" src="img/home/logo-news.png" alt="">
                             </a>
                         </div>
                         <div id="about" class="col-md-3 col-sm-12 col-xs-12">
                             <h3>About us</h3>
-                            <p class="text-justify"> Ngọc Duy thành lập năm 2024. Chúng tôi là cửa hàng bán vật liệu xây dựng uy tín hàng đầu Việt Nam cũng như trên toàn thế giới.</p>
+                            <p class="text-justify"> News là nơi cung cấp tin tức nhanh chóng, chính xác và đầy đủ nhất.</p>
                         </div>
                         <div id="hotline" class="col-md-3 col-sm-12 col-xs-12">
                             <h3>Hotline</h3>
                             <p>Phone1: (+84) 934155611</p>
                             <p>Phone2: (+84) 523514521</p>
-                            <p>Email: ngocduy@gmail.com</p>
+                            <p>Email: news@gmail.com</p>
                         </div>
                         <div id="contact" class="col-md-3 col-sm-12 col-xs-12">
                             <h3>Contact Us</h3>
