@@ -11,4 +11,9 @@ class VpCategory extends Model
 
     protected $primaryKey = 'cate_id';
     protected $guarded = [];
+
+    public function news()
+    {
+        return $this->hasMany(VpNews::class, 'news_cate', 'cate_id');
+    }
 }

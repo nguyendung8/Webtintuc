@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <div class="col-md-8">
-                        <div class="news-category">{{ $news->category->cate_name }}</div>
+                        <div class="news-category" style="margin-top: 5px;">{{ $news->category->cate_name }}</div>
                         <h3 class="news-title">
                             <a href="{{ route('detail', $news->news_id) }}">{{ $news->news_title }}</a>
                         </h3>

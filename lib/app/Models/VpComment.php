@@ -11,4 +11,9 @@ class VpComment extends Model
 
     protected $primaryKey = 'com_id';
 
+    public function news()
+    {
+        return $this->belongsTo(VpNews::class, 'com_new', 'news_id');
+    }
+
 }

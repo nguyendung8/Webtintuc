@@ -33,7 +33,7 @@ class FrontendController extends Controller
             ->where('news_status', 1)
             ->where('deleted_at', null)
             ->orderBy('news_id', 'desc')
-            ->take(10)
+            ->take(3)
             ->get();
 
         return view('frontend.home', compact('featured_news', 'latest_news'));
@@ -44,8 +44,7 @@ class FrontendController extends Controller
         VpNews::where('news_id', $id)->increment('news_views');
 
         $news = VpNews::with('category')->find($id);
-        $comments = VpComment::where('com_news', $id)
-            ->where('com_status', 1)
+        $comments = VpComment::where('com_new', $id)
             ->get();
 
         // Lấy tin liên quan
@@ -65,18 +64,17 @@ class FrontendController extends Controller
         $news_cate = VpNews::with('category')
             ->where('news_cate', $id)
             ->where('news_status', 1)
-            ->orderBy('news_id', 'desc')
-            ->paginate(10);
+            ->orderBy('created_at', 'desc')
+            ->paginate(12);
 
         return view('frontend.category', compact('news_cate', 'category'));
     }
     public function postComment(Request $request, $id)
     {
         $comment = new VpComment;
-        $comment->com_name = $request->name;
-        $comment->com_email = $request->email;
+        $comment->com_email = Auth::user()->email;
         $comment->com_content = $request->content;
-        $comment->com_product = $id;
+        $comment->com_new = $id;
         $comment->user_id = Auth::id();
 
         $comment->save();
@@ -84,12 +82,15 @@ class FrontendController extends Controller
     }
     public function getSearch(Request $request)
     {
-        $result = $request->result;
-        $keyword = $result;
-        $result = Str::replace(' ', '%', $result);
+        $keyword = $request->result;
+        $search = Str::replace(' ', '%', $keyword);
 
-        $prod_search = VpNews::where ('prod_name', 'like', '%' . $result . '%')->paginate(6);
+        $news_search = VpNews::where('news_title', 'like', '%' . $search . '%')
+                            ->orWhere('news_content', 'like', '%' . $search . '%')
+                            ->where('news_status', 1)
+                            ->orderBy('created_at', 'desc')
+                            ->paginate(10);
 
-        return view('frontend.search', compact('prod_search', 'keyword'));
+        return view('frontend.search', compact('news_search', 'keyword'));
     }
 }

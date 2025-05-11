@@ -251,7 +251,7 @@
             }
             .news-thumb img {
                 width: 100%;
-                height: auto;
+                height: 234px;
                 transition: transform 0.3s;
             }
             .news-thumb:hover img {
@@ -278,6 +278,50 @@
             .news-item:last-child {
                 border-bottom: none;
             }
+            /* Danh mục ngang */
+            #category-navbar {
+                margin: 25px 0 20px 0;
+                width: 100%;
+            }
+            .category-list {
+                align-items: center;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 15px;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                overflow-x: auto;
+            }
+            .category-item {
+                background: #f53d2d;
+                border-radius: 20px;
+                transition: background 0.2s;
+            }
+            .category-item a {
+                display: block;
+                padding: 8px 22px;
+                color: #fff;
+                font-weight: 500;
+                text-decoration: none;
+                font-size: 16px;
+                border-radius: 20px;
+                transition: background 0.2s, color 0.2s;
+            }
+            .category-item:hover,
+            .category-item a:hover {
+                background: #f63;
+                color: #fff;
+            }
+            @media (max-width: 600px) {
+                .category-list {
+                    gap: 8px;
+                }
+                .category-item a {
+                    padding: 7px 12px;
+                    font-size: 14px;
+                }
+            }
         </style>
 </head>
 <body>
@@ -298,7 +342,7 @@
 
 				<div>
 					<form action="{{ route('search') }}" method="get">
-						<input class="input" type="text" name="result" placeholder="Nhập tiêu đề tin tức ..." required>
+						<input class="input" type="text" name="result" placeholder="Nhập tiêu đề, mô tả tin tức ..." required value="{{ $keyword ?? '' }}">
 						<input class="submit"type="submit" name="submit" value="Tìm Kiếm">
 					</form>
 				</div>
@@ -323,18 +367,21 @@
 	<!-- main -->
 	<section id="body">
 		<div class="container">
+			<!-- Danh mục hàng ngang -->
+			<nav id="category-navbar">
+				<ul class="category-list">
+                    <a style="text-decoration: none;" href="{{ asset('/') }}">
+					    <i class="fa fa-home" style="font-size: 30px; color: #f53d2d;"></i>
+					</a>
+					@foreach($categories as $category)
+						<li class="category-item">
+							<a href="{{ route('category', $category->cate_id) }}">{{ $category->cate_name }}</a>
+						</li>
+					@endforeach
+				</ul>
+			</nav>
 			<div class="row">
-				<div id="sidebar" class="col-md-3">
-					<nav id="menu">
-						<ul style="margin-bottom: 0px;">
-							<li class="menu-item menu-head">Danh mục tin tức</li>
-							@foreach($categories as $category)
-							<li class="menu-item"><a style="text-decoration: none;" href="{{ route('category', $category->cate_id) }}">{{ $category->cate_name }}</a></li>
-							@endforeach
-						</ul>
-					</nav>
-				</div>
-				<div id="main" class="col-md-9">
+				<div id="main" class="col-md-12">
 					@yield('main')
 				</div>
 			</div>
